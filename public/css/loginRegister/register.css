@@ -1,0 +1,134 @@
+.bgDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.loginContainer{
+    position: absolute;
+    border-radius: 24px;
+    padding: 10px;
+    display: flex;
+    height: 70%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer{
+    position: absolute;
+    right: 50%;
+    display: flex;
+    height: 100%;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+
+}
+
+.loginImage{
+    height: 80%;
+}
+
+.loginUserDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: #444444;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+input{
+    width: 80%;
+    height: calc(10% * 0.5/0.7);
+    border-radius: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 7.5%;
+    outline: none;
+    border: none;
+    font-family: sans-serif;
+}
+
+#username{
+    position: absolute;
+    top: 10%;
+}
+
+#password{
+    position: absolute;
+    top: 25%;
+}
+
+#password2{
+    position: absolute;
+    top: 40%;
+}
+
+#height{
+    position: absolute;
+    top: 55%;
+}
+
+#language{
+    position: absolute;
+    top: 70%;
+
+    width: 40%;
+    height: calc(10% * 0.5/0.7);
+    border-radius: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 7.5%;
+    outline: none;
+    border: none;
+    font-family: sans-serif;
+}
+
+#loginBtn{
+    position: absolute;
+    top: 85%;
+    border-radius: 24px;
+    height: 10%;
+    width: 40%;
+    right: 7.5%;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: none;
+    background-color: #00DFC0;
+    color: #444444;
+    cursor: pointer;
+}
+
+#languageText{
+    position: absolute;
+    top: 70%;
+    width: 40%;
+    height: calc(10% * 0.5/0.7);
+    padding-left: 10px;
+    padding-right: 10px;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}

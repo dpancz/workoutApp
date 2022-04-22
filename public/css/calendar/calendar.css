@@ -1,0 +1,149 @@
+/*.bgDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    font-family: sans-serif;
+    font-weight: bold;
+}*/
+
+.calendarDiv{
+    background-color: #444444;
+    height: 70%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+}
+
+.dateRect{
+    position: relative;
+    height: 100%;
+    width: calc(100%/7);
+    border: 1px solid #222222;
+    cursor: pointer;
+}
+
+.workoutShowDiv{
+    width: 100%;
+    height: 40%;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.workoutInfo{
+    position: absolute;
+    height: 400%;
+    width: 200%;
+    background-color: #111111;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+.workoutInfoTitle{
+    color: #ffffff;
+    position: absolute;
+    top: 5%;
+}
+
+.workoutInfoTime{
+    color: #999999;
+    position: absolute;
+    top: 12%;
+}
+
+.exercisesInfoDiv{
+    position: absolute;
+    top: 25%;
+    height: 70%;
+    width: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+}
+
+.exerciseInfo{
+    position: relative;
+    color: #aaaaaa;
+    left: 3%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.exerciseSetsDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777777;
+    position: relative;
+    top: 0%;
+    display: none;
+}
+
+.dateRectRow{
+    position: relative;
+    display: flex;
+    height: calc(100%/6);
+    width: 100%;
+}
+
+.monthText{
+    position: absolute;
+    top: 4%;
+    height: 50px;
+    width: 50px;
+    left: 58%;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.arrowLeft{
+    position: absolute;
+    height: 50px;
+    top: 4%;
+    left: 45%;
+    transform: rotateZ(180deg);
+    cursor: pointer;
+}
+
+.arrowRight{
+    position: absolute;
+    height: 50px;
+    top: 4%;
+    left: 71%;
+    cursor: pointer;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #111111;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border-radius: 10px;
+    border: 3px solid #111111;
+}

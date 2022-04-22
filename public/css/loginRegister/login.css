@@ -1,0 +1,123 @@
+.bgDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.loginContainer{
+    position: absolute;
+    border-radius: 24px;
+    padding: 10px;
+    display: flex;
+    height: 50%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer{
+    position: absolute;
+    right: 50%;
+    display: flex;
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+
+}
+
+.loginImage{
+    height: 80%;
+}
+
+.loginUserDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: #444444;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+input{
+    width: 80%;
+    height: 10%;
+    border-radius: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 7.5%;
+    outline: none;
+    border: none;
+    font-family: sans-serif;
+}
+
+#username{
+    position: absolute;
+    top: 30%;
+}
+
+#password{
+    position: absolute;
+    top: 50%;
+}
+
+#loginBtn{
+    position: absolute;
+    top: 70%;
+    border-radius: 24px;
+    height: 10%;
+    width: 40%;
+    right: 7.5%;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: none;
+    background-color: #00DFC0;
+    color: #444444;
+    cursor: pointer;
+}
+
+#registerBtn{
+    position: absolute;
+    top: 85%;
+    right: 7.5%;
+    text-decoration: underline;
+    color: #00DFC0;
+    cursor: pointer;
+}
+
+@keyframes registerHide {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+@keyframes registerSize {
+    0%{height: 50%;}
+    100%{height: 70%;}
+}
+
+@keyframes registerImageSize {
+    0%{height: 80%;}
+    100%{height: calc(0.4/0.7);}
+}
+
+@keyframes registerImageDivSize {
+    0%{width: 50%;}
+    100%{width: 70%;}
+}

@@ -1,0 +1,42 @@
+FUNKCJE:
+    [X]dodawanie ćwiczeń: cwiczenie, ilosc serii, ilosc powtórzeń
+    [X]dodawanie wagi + bmi
+    kalendarz - planowanie treningow
+    [X]sprawdzanie rekordow
+    [X]wykres z x czasu
+    postanowienia - ilosc treningow w tygodniu, waga
+    [X]workout live 
+
+VIEWS:
+    [X]logowanie/rejestracja
+    strona główna
+    [X]dodaj trening
+    [X]parametry: sprawdz wage, bmi, dodaj wage
+    kalendarz: zrobione treningi, planowanie nowych,
+    [X]rekordy
+    [X]statystyki: wykresy
+    [X]workout live: czas, dodawanie cwiczen na biezaco
+
+DODATKOWE:
+    kalorie/makro
+    udostpenij trening
+    mapa silowni w okolicy
+
+DATA:
+    #00dfc0
+
+LEFT MENU:
+    [X]home
+    [X]homeDelete
+    [X]homePasswordDelete
+    [X]homeProfile
+    [X]goalsShow
+    [X]goalsNew
+    [X]calendar
+    [X]personalBest
+    [X]workoutStats
+    [X]yourWeight
+
+    (?)workoutAdd
+    (?)workoutLive
+    (?)workoutLiveDone

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="../public/css/workout/workoutAdd.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+        <form class="newWorkoutForm">
+            <input type="text" id="workoutName" name="workoutName" placeholder="Workout" required value="Workout">
+            <input type="date" id="workoutDate" name="workoutDate" required>
+            <input type="color" id="workoutColor" name="workoutColor" required>
+            <div class="workoutTimeDiv">
+                <input type="number" min="1" id="workoutHours" required value="1">
+                <div id="textTime">hours</div>
+                <input type="number" min="0" max="59" id="workoutMinutes" required value="0">
+                <div id="textTime">minutes</div>
+            </div>
+        </form>
+        <div class="workoutListDiv">
+            <div class="title">Workout</div>
+            <div class="addFirst">+</div>
+            <div class="workoutList">
+                
+            </div>
+        </div>
+        <div class="addingNew">
+            <input list="exercisesList" type="text" placeholder="Exercise Name" id="exerciseName" required>
+            <div class="newSetsDiv">
+
+            </div>
+            <div class="setsBtn">Add Set</div>
+            <div class="addingDoneBtn">+</div>
+        </div>
+
+        <form class="addWorkout" action="/workout-add/save" method="post">
+            <input type="text" id="workoutInputSend" name="workoutInputSend" style="display: none;" required>
+            <button id="addWorkoutBtn">Add workout</button>
+        </form>
+
+        <datalist id="exercisesList">
+            <option value="Bench press"></option>
+            <option value="Push ups"></option>
+            <option value="Press ups"></option>
+            <option value="Sit ups"></option>
+            <option value="Dips"></option>
+            <option value="Deadlift"></option>
+            <option value="Biceps curl"></option>
+        </datalist>
+    </div>
+    
+    <script>
+        let id = '<%- id %>';
+    </script>
+    <script src="../public/js/workout/workoutAdd.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/statisticsLeftMenu.css">
+    <link rel="stylesheet" href="/public/css/statistics/workoutStats.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <%- include('./partials/statisticsLeftMenu.ejs') %>
+
+        <div class="restDiv">
+            <div class="selectDiv">
+                <select name="chartPick" id="chartPick">
+                    <option value="All workouts">All workouts</option>
+                </select>
+            </div>
+
+            <div class="myChart">
+                <canvas id="thisChart"></canvas>
+            </div>
+
+            <div class="infoRow">
+                <div class="infoDiv firstDiv">
+                    <div class="infoTitle firstInfo">Average</div>
+                    <div class="infoData firstData">20</div>
+                </div>
+                <div class="infoDiv secondDiv">
+                    <div class="infoTitle secondInfo">Personal Best</div>
+                    <div class="infoData secondData">20</div>
+                </div>
+                <div class="infoDiv thirdDiv">
+                    <div class="infoTitle thirdInfo">Progress</div>
+                    <div class="infoData thirdData">20</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        let id = '<%- id %>';
+        let data = '<%- data %>';
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/public/js/statistics/workoutStats.js"></script>
+    <script src="/public/js/partialsJS/statisticsLeftMenu.js"></script>
+
+</body>
+</html>

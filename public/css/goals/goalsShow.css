@@ -1,0 +1,168 @@
+*::-webkit-scrollbar {
+    width: 16px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #222222;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border-radius: 10px;
+    border: 3px solid #111111;
+}
+
+.restDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 80%;
+    position: relative;
+    left: 0%;
+}
+
+.title{
+    color: #ffffff;
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+}
+
+.goalsDiv{
+    position: absolute;
+    top: 20%;
+    height: 480px;
+    width: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+}
+
+.goalRow{
+    position: relative;
+    left: 10px;
+    height: 250px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.goalDiv{
+    height: 250px;
+    width: 250px;
+    background-color: #666666;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.goalBackground{
+    height: 250px;
+    width: 250px;
+    background-color: #666666;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.goalInfoDiv{
+    height: 150px;
+    width: 250px;
+    background-color: #444444;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: absolute;
+    gap: 10%;
+    top: 0%;
+    z-index: 1;
+}
+
+@keyframes goalInfoDivShow {
+    0%{top: 0%;}
+    100%{top: 100%; z-index: 3;}
+}
+
+@keyframes goalInfoDivHide {
+    0%{top: 100%;}
+    100%{top: 0%; z-index: 0;}
+}
+
+.infoText{
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    left: 20px;
+}
+
+.goalTitle{
+    color: #ffffff;
+    position: absolute;
+    top: 7%;
+    z-index: 2;
+}
+
+.goalCircle{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    z-index: 2;
+}
+
+.goalCircleIn{
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    fill: none;
+    stroke-width: 10;
+    stroke: #00dfc0;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transform: rotateZ(90deg);
+    transform-origin: 70px;
+}
+
+.percentNumber{
+    position: absolute;
+    font-size: 30px;
+}
+
+.addNewBtn{
+    height: 45px;
+    width: 200px;
+    background-color: #00dfc0;
+    color: #ffffff;
+    border-radius: 24px;
+
+    position: absolute;
+    top: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.formSend{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

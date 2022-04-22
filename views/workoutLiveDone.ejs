@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="../public/css/user/workoutLiveDone.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+        <div class="workoutList"></div>
+        <div class="workoutTime">
+            <div class="textTime">Workout time</div>
+            <div class="clock">00:00</div>
+        </div>
+        <form method="post" action="/workout-live/save" class="saveForm">
+            <input type="text" name="workoutIDSend" id="workoutIDSend" required>
+            <input type="text" name="workoutSend" id="workoutSend" required>
+            <input type="text" name="workoutTimerSend" id="workoutTimerSend" required>
+            <button class="saveBtn">Save workout</button>
+        </form>
+    </div>
+
+    <script>
+        let data = '<%- data %>';
+        data = JSON.parse(data);
+        console.log(data);
+    </script>
+    <script src="../public/js/user/workoutLiveDone.js"></script>
+</body>
+</html>

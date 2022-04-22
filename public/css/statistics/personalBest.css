@@ -1,0 +1,101 @@
+.restDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 80%;
+    position: relative;
+    left: 0%;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #222222;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border-radius: 10px;
+    border: 3px solid #111111;
+}
+
+.titleOfPage{
+    position: absolute;
+    top: 4%;
+    height: 50px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.exercisesList{
+    position: absolute;
+    top: 13%;
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    align-items: center;
+    gap: 5%;
+}
+
+.PBRow{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content:space-around;
+}
+
+.PBDiv{
+    background-color: rgba(88, 88, 88, 0.5);
+    height: 180px;
+    width: 180px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.PBTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    position: absolute;
+    top: 24px;
+    font-size: 20px;
+}
+
+.PBWeight{
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+    border: #00dfc0 2px solid;
+    border-radius: 50%;
+    position: relative;
+    top: 0px;
+}
+
+.PBDate{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #ffffff;
+    bottom: 20px;
+}

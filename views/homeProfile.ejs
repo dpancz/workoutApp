@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <link rel="stylesheet" href="/public/css/user/homeProfile.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <div class="mainPage">
+            <div class="mainTitle">My profile</div>
+            <div class="profileDiv">
+                <div class="divIn usernameDiv">
+                    <div class="titleIn usernameText">Username:</div>
+                    <div class="myUsername"></div>
+                    <i class="fa-solid fa-pen" id="editUsername"></i>
+                </div>
+                <div class="break2"></div>
+                <div class="divIn heightDiv">
+                    <div class="titleIn heightText">Height:</div>
+                    <div class="myHeight"></div>
+                    <i class="fa-solid fa-pen" id="editHeight"></i>
+                </div>
+                <div class="break2"></div>
+                <div class="divIn createdAtDiv">
+                    <div class="titleIn createdAtText">Created at:</div>
+                    <div class="myCreatedAt"></div>
+                </div>
+            </div>
+            <form class="editingForm" action="/user/profile/save" method="post">
+                <input class="editingInput" name="username" id="usernameEdited">
+                <input class="editingInput" name="height" type="number" id="heightEdited">
+                <input class="editingInput" name="userID" id="userIDEdit">
+                <button class="saveBtn">Save</button>
+            </form>
+            <div class="changePasswordBtn">Change Password</div>
+        </div>
+
+    </div>
+
+    <script>
+
+        let id = '<%- id %>'; 
+        let username = '<%- username%>'; 
+        let height = '<%- height %>'; 
+        let createdAt = '<%- createdAt %>'; 
+
+    </script>
+    <script src="/public/js/user/homeProfile.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+</body>
+</html>

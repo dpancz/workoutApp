@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/user/workoutLive.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+        <div class="startWorkout">Start</div>
+        <div class="workoutLive">
+            <div class="clock">00:00</div>
+            <div class="doneExercises"></div>
+            <div class="newExercise">
+                <div class="topLane">
+                    <input list="exercisesList" type="text" name="exerciseName" id="exerciseName" placeholder="Add excercise" required>
+                    <div id="exerciseAddBtn">Add</div>
+                    
+                    <datalist id="exercisesList">
+                        <option value="Bench press"></option>
+                        <option value="Push ups"></option>
+                        <option value="Press ups"></option>
+                        <option value="Sit ups"></option>
+                        <option value="Dips"></option>
+                        <option value="Deadlift"></option>
+                        <option value="Biceps curl"></option>
+                    </datalist>
+
+                </div>
+
+                <div class="repsXWeight">
+                    <div id="exerciseNameDiv"></div>
+                    <div id="setName">Set: </div>
+                    <input class="numberInput" type="number" name="reps" id="exerciseReps" placeholder="Reps">
+                    <div id="xBetween">X</div>
+                    <input class="numberInput" type="number" name="weight" id="exerciseWeight" placeholder="Weight">
+                    <div id="plusDiv">
+                        <div id="rWAddBtn">+</div>
+                    </div>
+                    <div class="doneSets">
+                        <ul class="setList">
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <form method="post" action="/workout-live/done" class="finishForm">
+                <input type="text" name="workoutInputSend" id="workoutInputSend" required>
+                <button class="endWorkout">Finish workout</button>
+            </form>
+
+            <div class="finishExercise">
+                <button class="endExercise">Finish current exercise</button>
+            </div>
+
+            <div class="workoutList"></div>
+        </div>
+    </div>
+
+    <script>
+        let id = '<%- id %>'
+    </script>
+    <script src="/public/js/user/workoutLive.js"></script>
+
+</body>
+</html>

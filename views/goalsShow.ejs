@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <link rel="stylesheet" href="/public/css/goals/goalsShow.css">
+</head>
+<body>
+
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <div class="restDiv">
+            <div class="title">Your goals</div>
+            <div class="goalsDiv"></div>
+            <form action="/goals/add" method="post" class="formSend">
+                <input name="data" id="dataSend" style="display: none;">
+                <button class="addNewBtn">Add New Goal</button>
+            </form>
+        </div>
+
+    </div>
+    
+    <script>
+        //goalTypes: [ Weight, Workout quantity ]
+
+        let id = '<%- id %>';
+        let goalsData = '<%- goalsData %>';
+        let weightData = '<%- weightData %>';
+        let workoutData = '<%- workoutData %>';
+    
+    </script>
+    <script src="/public/js/goals/goalsShow.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+
+</body>
+</html>

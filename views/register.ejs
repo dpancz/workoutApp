@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/loginRegister/register.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+        <div class="loginContainer">
+            <div class="imageContainer">
+                <img class="loginImage" src="/public/images/loginImg.jpg">
+            </div>
+            <div class="loginUserDiv">
+                <form class="registerForm" action="/user/register" method="post">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <input type="text" name="password" id="password" placeholder="Password" required>
+                    <input type="text" name="password2" id="password2" placeholder="Confirm password" required>
+                    <input type="text" name="dayMode" style="display: none;" value='false'>
+                    <label for="language" id="languageText">Language:</label>
+                    <select name="language" id="language">
+                        <option value="English">English</option>
+                        <option value="Polski">Polski</option>
+                    </select>
+                    <input type="number" name="height" id="height" placeholder="Your Height" required>
+                    <button id="loginBtn">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/loginRegister/register.js"></script>
+
+</body>
+</html>

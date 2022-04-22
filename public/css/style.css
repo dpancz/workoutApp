@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.loginContainer{
+    position: relative;
+    border: 2px solid black;
+    border-radius: 24px;
+    padding: 10px;
+    display: inline-flex;
+}
+
+.loginImage{
+    height: 300px;
+}
+
+.loginUserDiv{
+    display: flex;
+}

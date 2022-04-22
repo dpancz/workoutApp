@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <link rel="stylesheet" href="/public/css/user/home.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <div class="mainPage">
+            <div class="liveWorkoutDiv">
+                <div class="title">Start live-workout now!</div>
+                <div class="startBtn">Let's start</div>
+            </div>
+        </div>
+
+        <div class="userMenuDiv">
+            <i class="fa-solid fa-chevron-down"></i>
+            <div class="menuList">
+                <div class="inMenuList myProfileOption">
+                    My profile
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="inMenuList settingsOption">
+                    Settings
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="inMenuList deleteOption">
+                    Delete account
+                    <i class="fa-solid fa-ban"></i>
+                </div>
+                <div class="inMenuList logOutOption">
+                    Log out
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let id = '<%- id %>';
+    </script>
+    <script src="/public/js/user/home.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+
+</body>
+</html>

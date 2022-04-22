@@ -1,0 +1,65 @@
+.mainPage{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.mainTitle{
+    color: #ffffff;
+    position: absolute;
+    top: 10%;
+    font-size: 30px;
+}
+
+.deleteForm{
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+#password{
+    outline: none;
+    border: none;
+    height: 45px;
+    width: 200px;
+    position: relative;
+    border-radius: 24px;
+    padding-left: 24px;
+}
+
+.fa-exclamation{
+    position: absolute;
+    top: 0px;
+    left: 330px;
+    font-size: 45px;
+    color: lightcoral;
+}
+
+#deleteBtn{
+    outline: none;
+    border: 2px solid black;
+    height: 45px;
+    width: 200px;
+    position: relative;
+    border-radius: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: lightcoral;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.deleteAlert{
+    text-align: center;
+    color: #ffffff;
+    line-height: 40px;
+}

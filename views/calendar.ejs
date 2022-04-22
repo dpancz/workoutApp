@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <link rel="stylesheet" href="/public/css/calendar/calendar.css">
+</head>
+<body>
+
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <img class="arrowLeft" src="/public/images/arrow.png">
+        <div class="monthText"></div>
+        <img class="arrowRight" src="/public/images/arrow.png">
+        <div class="calendarDiv"></div>
+
+    </div>
+    
+    <script>
+        let id = '<%- id %>';
+        let data = '<%- data %>';
+    </script>
+    <script src="/public/js/calendar/calendar.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+
+</body>
+</html>
