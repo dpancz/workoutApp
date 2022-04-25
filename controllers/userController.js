@@ -59,7 +59,7 @@ const user_create = (req, res) => {
 
 const user_logged = (req, res) => {
     const id = req.params.id;
-    console.log('ip: ' + req.id);
+    console.log('ip: ' + req.ip);
     res.render('home', {id});
 };
 
