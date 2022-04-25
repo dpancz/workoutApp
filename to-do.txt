@@ -46,3 +46,11 @@ LEFT MENU:
 
 TODO:
     login: logged by ip, user: logged = [];
+
+DEPLOY:
+    git push origin
+    git checkout main
+    heroku git:remote -a node-workout-app
+    git add .
+    git commit -m 'second'
+    git push heroku main
