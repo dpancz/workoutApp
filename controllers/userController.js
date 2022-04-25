@@ -6,9 +6,31 @@ const Workout = require('../models/workout');
 const user_login = (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
+    let ipAddress = req.body.logged;
+    let loggedUpdate = [];
+
     User.findOne({ username: username, password: password}, function (err, user) {
         if ( user != null ){
-            res.redirect('/user/' + user._id);
+            loggedUpdate = user.logged;
+            let isAlready = false;
+
+            loggedUpdate.forEach(log => {
+                if (log == ipAddress){
+                    isAlready = true;
+                }
+            });
+
+            if (!isAlready){
+                loggedUpdate.push(ipAddress);
+            }
+
+            User.findByIdAndUpdate(user._id, {logged: loggedUpdate})
+                .then(result => {
+                    res.redirect('/user/' + user._id);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         } else {
             res.redirect('/');
         }
@@ -17,8 +39,11 @@ const user_login = (req, res) => {
 
 const user_create = (req, res) => {
     const input = req.body;
+    let ipAddress = input.logged;
     if (input.password == input.password2){
         delete input.password2;
+        input.logged = [];
+        input.logged.push(ipAddress);
         const user = new User(input);
         user.save()
             .then((result) => {
@@ -34,12 +59,15 @@ const user_create = (req, res) => {
 
 const user_logged = (req, res) => {
     const id = req.params.id;
+    console.log(req.id);
     res.render('home', {id});
 };
 
 const user_registered = (req, res) => {
     //when user successfully registered first time
 };
+
+//DELETE
 
 const user_deleteShow = (req, res) => {
     const id = req.params.id;
@@ -84,6 +112,8 @@ const user_delete = (req, res) => {
         });
 
 }
+
+//MY PROFILE
 
 const user_profileShow = (req, res) => {
     const id = req.params.id;
@@ -145,6 +175,76 @@ const user_profilePasswordSave = (req, res) => {
     }
 }
 
+//SETTINGS
+
+const user_settingsShow = (req, res) => {
+    const id = req.params.id;
+    let dayModeData;
+    let languageData;
+
+    User.find({ _id: id })
+        .then(result => {
+            dayModeData = result[0].dayMode;
+            languageData = result[0].language;
+            res.render('homeSettings', {id, dayModeData, languageData});
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+const user_settingsSave = (req, res) => {
+    const id = req.body.userID;
+    let language = req.body.language;
+    let dayMode = req.body.dayMode;
+    User.findOneAndUpdate({ _id: id }, { language, dayMode })
+        .then(result => {
+            res.redirect('/user/settings/' + id);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+//LOG OUT
+
+const user_logOut = (req, res) => {
+    const id = req.params.id;
+    const ip = req.params.ip;
+    let loggedUpdate;
+    User.findOne({ _id: id })
+        .then(result => {
+            loggedUpdate = result.logged;
+            let isIn = false;
+            let index;
+            let i = 0;
+
+            loggedUpdate.forEach(log => {
+                if (log == ip){
+                    isIn = true;
+                    index = i;
+                }
+                i++;
+            });
+
+            if (isIn){
+                loggedUpdate.splice(index, 1);
+                User.findByIdAndUpdate(id, {logged: loggedUpdate})
+                    .then(result => {
+                        res.redirect('/');
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            } else {
+                res.redirect('/');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
 module.exports = {
     user_login,
     user_logged,
@@ -157,5 +257,10 @@ module.exports = {
     user_profileShow,
     user_profileSave,
     user_profilePasswordShow,
-    user_profilePasswordSave
+    user_profilePasswordSave,
+
+    user_settingsShow,
+    user_settingsSave,
+
+    user_logOut
 }

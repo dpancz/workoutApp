@@ -92,14 +92,16 @@ myProfileOption.addEventListener('click', () => {
     window.location.href = '/user/profile/' + id;
 });
 
-settingsOption.addEventListener('click', () => {});
+settingsOption.addEventListener('click', () => {
+    window.location.href = '/user/settings/' + id;
+});
 
 deleteOption.addEventListener('click', () => {
     window.location.href = '/user/delete/' + id + '/' + false;
 });
 
 logOutOption.addEventListener('click', () => {
-    window.location.href = '/';
+    window.location.href = '/user/log-out/' + id + '/' + ip;
 });
 
 //MENU

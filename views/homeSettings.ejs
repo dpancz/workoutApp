@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <link rel="stylesheet" href="/public/css/user/homeSettings.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <div class="mainPage">
+
+            <div class="mainTitle">Settings</div>
+
+            <div class="colorMode">
+                Day Mode
+                <div class="buttonColor">
+                    <div class="slide active"></div>
+                    <div class="dot active"></div>
+                </div>
+            </div>
+
+            <div class="languagePick">
+                <div class="buttonLanguage">
+                    <div class="slider"></div>
+                    <div class="option option1">English</div>
+                    <div class="option option2">Polski</div>
+                </div>
+            </div>
+            
+            <form action="/user/settings" method="post" class="sendForm">
+                <input type="text" name="dayMode" id="dayMode" style="display: none;">
+                <input type="text" name="language" id="language" style="display: none;">
+                <input type="text" name="userID" id="userID" style="display: none;">
+                <button class="saveBtn">Save</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let id = '<%- id %>'; 
+        let dayModeData = '<%- dayModeData %>';
+        let languageData = getData();
+
+        if (dayModeData == 'false'){
+            dayModeData = false;
+        } else {
+            dayModeData = true;
+        }
+        
+        function getData(){
+            let languageDB = '<%- languageData %>';
+            switch(languageDB){
+                case 'English':
+                    return 1;
+                    break;
+                case 'Polish':
+                    return 2;
+                    break;
+            }
+        }
+
+    </script>
+    <script src="/public/js/user/homeSettings.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+</body>
+</html>

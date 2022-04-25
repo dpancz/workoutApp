@@ -33,7 +33,7 @@ const workout_save = (req, res) => {
 module.exports = {
     start_workout,
     workout_done,
-    workout_save
+    workout_save,
 }
 
 function setDate(){

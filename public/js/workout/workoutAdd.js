@@ -1,4 +1,3 @@
-
 const workoutList = document.querySelector('.workoutList');
 const addFirst = document.querySelector('.addFirst');
 const addingNew = document.querySelector('.addingNew');

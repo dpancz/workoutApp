@@ -287,6 +287,7 @@ function displayWorkouts(workoutsList){
                 workoutInfo.classList.add('workoutInfo');
 
                 insideWorkoutInfo(workoutInfo, thisWorkout);
+                addShareButton(workoutInfo, thisWorkout);
 
                 if( i / 7 >= 3){
                     workoutInfo.style.bottom = '70%';
@@ -364,6 +365,57 @@ function displayWorkouts(workoutsList){
                 thisExercise.appendChild(thisExerciseSets);
                 exercisesInfoDiv.appendChild(thisExercise);
             });
+        }
+
+        function addShareButton(div, myWorkout){
+            const shareBtn = document.createElement('div');
+            const shareIcon = document.createElement('i');
+
+            shareBtn.classList.add('shareBtn');
+            shareIcon.classList.add('fa-solid');
+            shareIcon.classList.add('fa-share');
+
+            shareBtn.appendChild(shareIcon);
+            div.appendChild(shareBtn);
+
+            let workoutID = myWorkout._id;
+
+            let urlStart = document.location.origin + '/share/' + workoutID; // + link to workout
+
+            shareBtn.addEventListener('click', () => {
+                const myInput = document.createElement('input');
+                shareBtn.appendChild(myInput);
+                myInput.value = urlStart;
+                myInput.select();
+                document.execCommand('Copy');
+                myInput.remove();
+                displayCopied(shareBtn);
+            });
+
+            function displayCopied(div){
+                const copiedDiv = document.createElement('div');
+
+                copiedDiv.classList.add('copiedDiv');
+
+                copiedDiv.textContent = 'Link Copied To Clipboard';
+
+                div.appendChild(copiedDiv);
+
+                let opacity = 1;
+
+                let timer1 = setTimeout(() => {
+                    let timer2 = setInterval(() => {
+                        if(opacity > 0){
+                            copiedDiv.style.opacity = opacity;
+                            opacity -= 0.01;
+                        } else if (opacity <= 0){
+                            copiedDiv.remove();
+                            clearInterval(timer2);
+                        }
+                    }, 5);
+                    clearTimeout(timer1);
+                }, 1500);
+            }
         }
     }
 

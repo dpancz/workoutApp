@@ -21,6 +21,10 @@ const userSchema = new Schema({
     language: {
         type: String,
         required: true
+    },
+    logged: {
+        type: Array,
+        required: true
     }
 }, { timestamps: true });
 

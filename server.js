@@ -8,6 +8,7 @@ const workoutAddRoutes = require('./routes/workoutAddRoutes');
 const calendarRoutes = require('./routes/calendarRoutes');
 const statisticsRoutes = require('./routes/statisticsRoutes');
 const goalsRoutes = require('./routes/goalsRoutes');
+const shareRoutes = require('./routes/shareRoutes');
 
 const app = express();
 const server = http.createServer(app);
@@ -46,3 +47,5 @@ app.use('/calendar', calendarRoutes);
 app.use('/statistics', statisticsRoutes);
 
 app.use('/goals', goalsRoutes);
+
+app.use('/share', shareRoutes)

@@ -1,21 +1,24 @@
 FUNKCJE:
     [X]dodawanie ćwiczeń: cwiczenie, ilosc serii, ilosc powtórzeń
     [X]dodawanie wagi + bmi
-    kalendarz - planowanie treningow
+    [X]workout live 
     [X]sprawdzanie rekordow
     [X]wykres z x czasu
+    
+    kalendarz - planowanie treningow
     postanowienia - ilosc treningow w tygodniu, waga
-    [X]workout live 
 
 VIEWS:
     [X]logowanie/rejestracja
-    strona główna
     [X]dodaj trening
     [X]parametry: sprawdz wage, bmi, dodaj wage
-    kalendarz: zrobione treningi, planowanie nowych,
     [X]rekordy
     [X]statystyki: wykresy
     [X]workout live: czas, dodawanie cwiczen na biezaco
+
+    strona główna
+    kalendarz: zrobione treningi, planowanie nowych,
+    workoutDone: udostepnione
 
 DODATKOWE:
     kalorie/makro
@@ -40,3 +43,6 @@ LEFT MENU:
     (?)workoutAdd
     (?)workoutLive
     (?)workoutLiveDone
+
+TODO:
+    login: logged by ip, user: logged = [];

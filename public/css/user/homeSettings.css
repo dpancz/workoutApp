@@ -1,0 +1,168 @@
+.mainPage{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+
+    color: #ffffff;
+}
+
+.mainTitle{
+    color: #ffffff;
+    position: absolute;
+    top: 10%;
+    font-size: 30px;
+}
+
+/*color pick*/
+
+.colorMode{
+    width: 300px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+}
+
+.buttonColor{
+    position: absolute;
+    right: 0px;
+
+    border: 2px solid lightcoral;
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #222222;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+
+    overflow: hidden;
+}
+
+.buttonColor .dot{
+
+    background-color: #dddddd;
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    border: 2px solid lightcoral;
+
+    position: absolute;
+    left: 54px;
+
+    cursor: pointer;
+
+    transition: left 1000ms;
+}
+
+.buttonColor .dot.active{
+    left: 6px;
+}
+
+.buttonColor .slide{
+    position: absolute;
+    left: 0px;
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: rgb(107, 161, 107);
+    transition: width 500ms;
+}
+
+.buttonColor .slide.active{
+    width: 0px;
+}
+
+/* language pick */
+
+.languagePick{
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+}
+
+.buttonLanguage{
+    position: absolute;
+
+    background-color: #222222;
+    height: 50px;
+    width: 260px;
+    border-radius: 24px;
+    border: 2px solid lightcoral;
+
+    gap: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttonLanguage .option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: lightcoral;
+    font-family: sans-serif;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.option.option2{
+    color: #222222;
+}
+
+.buttonLanguage .slider{
+    height: 40px;
+    width: 100px;
+    background-color: lightcoral;
+    border-radius: 24px;
+
+    position: absolute;
+    left: 140px;
+}
+
+/* save form */
+
+.sendForm{
+    position: absolute;
+    top: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveBtn{
+    outline: none;
+    border: 2px solid black;
+    height: 45px;
+    width: 250px;
+    border-radius: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #00dfc0;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;   
+    position: absolute;
+}

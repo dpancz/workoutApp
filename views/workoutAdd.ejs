@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout</title>
     <link rel="stylesheet" href="../public/css/workout/workoutAdd.css">
+    <link rel="stylesheet" href="/public/css/partialsCSS/closeX.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
     <div class="bgDiv">
+
         <form class="newWorkoutForm">
             <input type="text" id="workoutName" name="workoutName" placeholder="Workout" required value="Workout">
             <input type="date" id="workoutDate" name="workoutDate" required>
@@ -21,6 +24,7 @@
                 <div id="textTime">minutes</div>
             </div>
         </form>
+
         <div class="workoutListDiv">
             <div class="title">Workout</div>
             <div class="addFirst">+</div>
@@ -28,6 +32,7 @@
                 
             </div>
         </div>
+
         <div class="addingNew">
             <input list="exercisesList" type="text" placeholder="Exercise Name" id="exerciseName" required>
             <div class="newSetsDiv">
@@ -51,12 +56,16 @@
             <option value="Deadlift"></option>
             <option value="Biceps curl"></option>
         </datalist>
+
+        <%- include('./partials/closeX.ejs') %>
+
     </div>
     
     <script>
         let id = '<%- id %>';
     </script>
     <script src="../public/js/workout/workoutAdd.js"></script>
+    <script src="/public/js/partialsJS/closeX.js"></script>
 
 </body>
 </html>

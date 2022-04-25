@@ -1,0 +1,9 @@
+.closeBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+}

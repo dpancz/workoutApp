@@ -111,3 +111,63 @@
 #workoutTimerSend{
     display: none;
 }
+
+.closingWindow{
+    background-color: #777777;
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    border-radius: 24px;
+}
+
+.alertInfo{
+    font-family: sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 40px;
+}
+
+.closeButtons{
+    display: flex;
+    gap: 100px;
+    position: absolute;
+    top: 100px;
+}
+
+.yesButton{
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #444444;
+    color: #ffffff;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.noButton{
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: lightcoral;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.yesButton:hover{
+    background-color: #555555;
+}
+
+.noButton:hover{
+    background-color: rgb(255, 133, 133);
+}
