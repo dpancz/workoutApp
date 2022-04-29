@@ -1,8 +1,16 @@
 const Workout = require('../models/workout');
+const Template = require('../models/template');
 
 const show_add = (req, res) => {
     const id = req.params.id;
-    res.render('workoutAdd', {id});
+    Template.find({ userID: id })
+        .then(result => {
+            let data = JSON.stringify(result)
+            res.render('workoutAdd', {id, data});
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
 const send_workout = (req, res) => {

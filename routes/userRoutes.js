@@ -35,10 +35,6 @@ router.get('/settings/:id', userController.user_settingsShow);
 
 router.post('/settings', userController.user_settingsSave); 
 
-//LOG OUT
-
-router.get('/log-out/:id/:ip', userController.user_logOut);
-
 //
 
 module.exports = router;

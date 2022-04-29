@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/workout/workoutTemplate.css">
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <form class="newWorkoutForm">
+            <input type="text" id="workoutName" name="workoutName" placeholder="Template name" required value="My Template">
+        </form>
+
+        <div class="workoutListDiv">
+            <div class="title">Workout</div>
+            <div class="addFirst">+</div>
+            <div class="workoutList">
+                
+            </div>
+        </div>
+
+        <div class="addingNew">
+            <input list="exercisesList" type="text" placeholder="Exercise Name" id="exerciseName" required>
+            <div class="newSetsDiv">
+
+            </div>
+            <div class="setsBtn">Add Set</div>
+            <div class="addingDoneBtn">+</div>
+        </div>
+
+        <form class="addWorkout" action="/template/save" method="post">
+            <input type="text" id="workoutInputSend" name="workout" style="display: none;" required>
+            <button id="addWorkoutBtn">Add template</button>
+        </form>
+
+        <datalist id="exercisesList">
+            <option value="Bench press"></option>
+            <option value="Push ups"></option>
+            <option value="Press ups"></option>
+            <option value="Sit ups"></option>
+            <option value="Dips"></option>
+            <option value="Deadlift"></option>
+            <option value="Biceps curl"></option>
+        </datalist>
+    </div>
+    <script>
+        let id = '<%- id %>';
+    </script>
+    <script src="/public/js/workout/workoutTemplate.js"></script>
+    <script src="/public/js/partialsJS/checkDeviceType.js"></script>
+
+</body>
+</html>

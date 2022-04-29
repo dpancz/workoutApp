@@ -6,31 +6,10 @@ const Workout = require('../models/workout');
 const user_login = (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    let ipAddress = req.body.logged;
-    let loggedUpdate = [];
 
     User.findOne({ username: username, password: password}, function (err, user) {
         if ( user != null ){
-            loggedUpdate = user.logged;
-            let isAlready = false;
-
-            loggedUpdate.forEach(log => {
-                if (log == ipAddress){
-                    isAlready = true;
-                }
-            });
-
-            if (!isAlready){
-                loggedUpdate.push(ipAddress);
-            }
-
-            User.findByIdAndUpdate(user._id, {logged: loggedUpdate})
-                .then(result => {
-                    res.redirect('/user/' + user._id);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
+            res.redirect('/user/' + user._id);
         } else {
             res.redirect('/');
         }
@@ -39,11 +18,8 @@ const user_login = (req, res) => {
 
 const user_create = (req, res) => {
     const input = req.body;
-    let ipAddress = input.logged;
     if (input.password == input.password2){
         delete input.password2;
-        input.logged = [];
-        input.logged.push(ipAddress);
         const user = new User(input);
         user.save()
             .then((result) => {
@@ -59,7 +35,6 @@ const user_create = (req, res) => {
 
 const user_logged = (req, res) => {
     const id = req.params.id;
-    console.log('ip: ' + req.ip);
     res.render('home', {id});
 };
 
@@ -206,45 +181,6 @@ const user_settingsSave = (req, res) => {
         });
 }
 
-//LOG OUT
-
-const user_logOut = (req, res) => {
-    const id = req.params.id;
-    const ip = req.params.ip;
-    let loggedUpdate;
-    User.findOne({ _id: id })
-        .then(result => {
-            loggedUpdate = result.logged;
-            let isIn = false;
-            let index;
-            let i = 0;
-
-            loggedUpdate.forEach(log => {
-                if (log == ip){
-                    isIn = true;
-                    index = i;
-                }
-                i++;
-            });
-
-            if (isIn){
-                loggedUpdate.splice(index, 1);
-                User.findByIdAndUpdate(id, {logged: loggedUpdate})
-                    .then(result => {
-                        res.redirect('/');
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            } else {
-                res.redirect('/');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-}
-
 module.exports = {
     user_login,
     user_logged,
@@ -261,6 +197,4 @@ module.exports = {
 
     user_settingsShow,
     user_settingsSave,
-
-    user_logOut
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="/public/css/workout/templateShow.css">
+    <link rel="stylesheet" href="/public/css/partialsCSS/leftMenu.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    
+    <div class="bgDiv">
+
+        <%- include('./partials/leftMenu.ejs') %>
+
+        <div class="mainPage">
+
+            <div class="mainTitle">Templates</div>
+
+            <div class="templatesAllDiv">
+
+                <div class="templateColumn firstColumn"></div>
+                <div class="templateColumn secondColumn"></div>
+                <div class="templateColumn thirdColumn"></div>
+            
+            </div>
+
+            <div class="createNew">
+                <div class="createText">Create Template</div>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const id = '<%- id %>';
+        let data = '<%- data %>';
+    </script>
+    <script src="/public/js/workout/templateShow.js"></script>
+    <script src="/public/js/partialsJS/leftMenu.js"></script>
+    <script src="/public/js/partialsJS/checkDeviceType.js"></script>
+
+</body>
+</html>

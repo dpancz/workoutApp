@@ -101,7 +101,7 @@ deleteOption.addEventListener('click', () => {
 });
 
 logOutOption.addEventListener('click', () => {
-    window.location.href = '/user/log-out/' + id + '/' + ip;
+    window.location.href = '/';
 });
 
 //MENU

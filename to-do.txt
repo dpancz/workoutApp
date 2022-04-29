@@ -45,7 +45,10 @@ LEFT MENU:
     (?)workoutLiveDone
 
 TODO:
-    login: logged by ip, user: logged = [];
+    check if logged in
+    change post requests(to-do-postRequest.png)
+    [X]create workout template
+    check if device is mobile,laptop,computer etc
 
 DEPLOY:
     git push origin

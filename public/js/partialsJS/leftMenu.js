@@ -2,6 +2,7 @@ const addWorkout = document.querySelector('.addWorkout');
 const calendar = document.querySelector('.calendar');
 const statistics = document.querySelector('.statistics');
 const yourGoals = document.querySelector('.yourGoals');
+const templates = document.querySelector('.templates');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
@@ -22,4 +23,8 @@ statistics.addEventListener('click', () => {
 
 yourGoals.addEventListener('click', () => {
     window.location.href = '/goals/' + id;
+});
+
+templates.addEventListener('click', async () => {
+    window.location.href = '/template/' + id;
 });

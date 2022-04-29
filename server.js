@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/userRoutes');
 const workoutLiveRoutes = require('./routes/workoutLiveRoutes');
@@ -9,6 +10,7 @@ const calendarRoutes = require('./routes/calendarRoutes');
 const statisticsRoutes = require('./routes/statisticsRoutes');
 const goalsRoutes = require('./routes/goalsRoutes');
 const shareRoutes = require('./routes/shareRoutes');
+const templateRoutes = require('./routes/templateRoutes');
 
 const app = express();
 const server = http.createServer(app);
@@ -22,9 +24,11 @@ mongoose.connect(dbURI)
         });
     })
     .catch((err) => {console.log(err)});
+
 app.use("/public", express.static('./public/'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //routing
 
@@ -34,6 +38,10 @@ app.get('/', (req, res) => {
 
 app.get('/register', (req, res) => {
     res.render('register');
+});
+
+app.get('/mobile', (req, res) => {
+    res.render('mobile');
 });
 
 app.use('/workout-live', workoutLiveRoutes);
@@ -48,4 +56,6 @@ app.use('/statistics', statisticsRoutes);
 
 app.use('/goals', goalsRoutes);
 
-app.use('/share', shareRoutes)
+app.use('/share', shareRoutes);
+
+app.use('/template', templateRoutes);

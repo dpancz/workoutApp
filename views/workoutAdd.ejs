@@ -13,6 +13,8 @@
     
     <div class="bgDiv">
 
+        <div class="templatesDiv"></div>
+
         <form class="newWorkoutForm">
             <input type="text" id="workoutName" name="workoutName" placeholder="Workout" required value="Workout">
             <input type="date" id="workoutDate" name="workoutDate" required>
@@ -63,9 +65,11 @@
     
     <script>
         let id = '<%- id %>';
+        let data = '<%- data %>';
     </script>
     <script src="../public/js/workout/workoutAdd.js"></script>
     <script src="/public/js/partialsJS/closeX.js"></script>
+    <script src="/public/js/partialsJS/checkDeviceType.js"></script>
 
 </body>
 </html>

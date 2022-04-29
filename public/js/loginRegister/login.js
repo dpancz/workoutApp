@@ -44,19 +44,3 @@ registerBtn.addEventListener('click', () => {
         clearTimeout(timer1);
     }, 1000);
 });
-
-//IP
-
-const logged = document.querySelector('#logged');
-
-getIPAddress();
-
-function getIPAddress(){
-    let ipAddress;
-    fetch('https://api.ipify.org/?format=json')
-        .then(result => result.json())
-        .then(data => {
-            ipAddress = data.ip;
-            logged.value = ipAddress;
-        });
-}

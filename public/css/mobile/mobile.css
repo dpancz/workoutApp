@@ -1,0 +1,30 @@
+.bgDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobileAppDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textDiv{
+    color: #ffffff;
+}
+
+.googlePlay{
+    width: 200px;
+    cursor: pointer;
+}
