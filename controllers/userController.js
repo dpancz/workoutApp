@@ -35,7 +35,28 @@ const user_create = (req, res) => {
 
 const user_logged = (req, res) => {
     const id = req.params.id;
-    res.render('home', {id});
+    let goalsData;
+    let weightData;
+    let workoutData;
+    Workout.find({ userID: id })
+        .then(workoutResult => {
+            workoutData = JSON.stringify(workoutResult);
+            Weight.find({ userID: id })
+            .then(weightGoal => {
+                weightData = JSON.stringify(weightGoal);
+                Goal.find({ userID: id })
+                .then(goalResult => {
+                    goalsData = JSON.stringify(goalResult);
+                    res.render('home', {id, goalsData, weightData, workoutData});
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            })
+            .catch(err2 => {
+                console.log(err2);
+            });
+        })    
 };
 
 const user_registered = (req, res) => {

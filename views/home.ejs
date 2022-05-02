@@ -16,10 +16,40 @@
         <%- include('./partials/leftMenu.ejs') %>
 
         <div class="mainPage">
+
+            <div class="dataDiv">
+
+            <div class="weightDiv">
+                <div class="weightNumber">80 kg</div>
+                <div class="weightText">Your weight</div>
+            </div>
+
+            <div class="allGoalsDiv">
+
+                <div class="goalsDiv"></div>
+                <div class="scrollDots"></div>
+                
+            </div>
+
+            <div class="chartDiv">
+
+                <div class="canvasDiv">
+    
+                    <canvas id="chart"></canvas>
+    
+                </div>
+    
+                <div class="chartText">Last week</div>
+    
+            </div>
+
+            </div>
+
             <div class="liveWorkoutDiv">
                 <div class="title">Start live-workout now!</div>
                 <div class="startBtn">Let's start</div>
             </div>
+
         </div>
 
         <div class="userMenuDiv">
@@ -47,7 +77,11 @@
 
     <script>
         let id = '<%- id %>';
+        let goalsData = '<%- goalsData %>';
+        let weightData = '<%- weightData %>';
+        let workoutData = '<%- workoutData %>';
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/public/js/user/home.js"></script>
     <script src="/public/js/partialsJS/leftMenu.js"></script>
     <script src="/public/js/partialsJS/checkDeviceType.js"></script>

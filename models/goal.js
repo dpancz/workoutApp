@@ -18,6 +18,11 @@ const goalSchema = new Schema({
         type: String,
         required: true,
     },
+    done: {
+        type: String,
+        default: false,
+        required: true,
+    }
 }, { timestamps: true });
 
 const Goal = mongoose.model('Goal', goalSchema);

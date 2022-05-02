@@ -57,30 +57,11 @@ function displayGoals(){
         goalDiv.appendChild(goalBackground);
         goalDiv.appendChild(goalTitle);
         createCircle(i, goalDiv);
-        createInfoDiv(i, goalDiv);
 
         document.querySelector(`.goalRow${Math.floor(i/3)}`).appendChild(goalDiv);
 
-        let clicked = false;
-
         goalDiv.addEventListener('click', () => {
-            if (!clicked){
-                clicked = true;
-                document.querySelector(`.goalInfoDiv${i}`).style.animation = 'goalInfoDivShow 0.5s';
-                let timer1 = setTimeout(() => {
-                    document.querySelector(`.goalInfoDiv${i}`).style.top = '100%';
-                    document.querySelector(`.goalInfoDiv${i}`).style.animation = '';
-                    clearTimeout(timer1);
-                }, 500);
-            } else {
-                clicked = false
-                document.querySelector(`.goalInfoDiv${i}`).style.animation = 'goalInfoDivHide 0.5s';
-                let timer1 = setTimeout(() => {
-                    document.querySelector(`.goalInfoDiv${i}`).style.top = '0%';
-                    document.querySelector(`.goalInfoDiv${i}`).style.animation = '';
-                    clearTimeout(timer1);
-                }, 500);
-            }
+            window.location.href = '/goals/one/' + goalsData[i]._id;
         });
     }
 
@@ -113,17 +94,6 @@ function displayGoals(){
         div.appendChild(goalCircle);
 
         displayInCircle(index, circle, percentNumber);
-    }
-
-    function createInfoDiv(index, div){
-        const goalInfoDiv = document.createElement('div');
-
-        goalInfoDiv.classList.add('goalInfoDiv');
-        goalInfoDiv.classList.add(`goalInfoDiv${index}`);
-
-        displayInInfo(index, goalInfoDiv);
-
-        div.appendChild(goalInfoDiv);
     }
 
     function displayInCircle(index, circle, textPercent){
@@ -195,60 +165,6 @@ function displayGoals(){
         }
     }
 
-    function displayInInfo(index, goalInfo){
-        switch(goalsData[index].goalType){
-            case 'Weight':
-                caseWeight();
-                break;
-            case 'Workout quantity':
-                caseQuantity();
-                break;
-        }
-
-        function caseWeight(){
-            let weightStart = goalsData[index].goal.weightStart;
-            let weightGoal = goalsData[index].goal.weightGoal;
-            let weightCurrent = lastWeight;
-
-            const weightStartDiv = document.createElement('div');
-            const weightGoalDiv = document.createElement('div');
-            const weightCurrentDiv = document.createElement('div');
-
-            weightStartDiv.classList.add('infoText');
-            weightGoalDiv.classList.add('infoText');
-            weightCurrentDiv.classList.add('infoText');
-
-            weightStartDiv.textContent = 'Initial Weight: ' + weightStart + 'kg';
-            weightGoalDiv.textContent = 'Goal Weight: ' + weightGoal + 'kg';
-            weightCurrentDiv.textContent = 'Current Weight: ' + weightCurrent + 'kg';
-
-            goalInfo.appendChild(weightStartDiv);
-            goalInfo.appendChild(weightGoalDiv);
-            goalInfo.appendChild(weightCurrentDiv);
-        }
-
-        function caseQuantity(){
-            let goalDays = goalsData[index].goal.days;
-            let goalQuantity = goalsData[index].goal.workouts;
-            let currentQuantity = workoutsInMonth;
-            
-            const goalDaysDiv = document.createElement('div');
-            const goalQuantityDiv = document.createElement('div');
-            const currentQuantityDiv = document.createElement('div');
-
-            goalDaysDiv.classList.add('infoText');
-            goalQuantityDiv.classList.add('infoText');
-            currentQuantityDiv.classList.add('infoText');
-
-            goalDaysDiv.textContent = 'Day limit: ' + goalDays;
-            goalQuantityDiv.textContent = 'Workouts Goal Quantity: ' + goalQuantity;
-            currentQuantityDiv.textContent = 'Current Quantity: ' + currentQuantity;
-
-            goalInfo.appendChild(goalDaysDiv);
-            goalInfo.appendChild(goalQuantityDiv);
-            goalInfo.appendChild(currentQuantityDiv);
-        }
-    }
 }
 
 function orderData(){

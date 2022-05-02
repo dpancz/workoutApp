@@ -15,39 +15,25 @@ VIEWS:
     [X]rekordy
     [X]statystyki: wykresy
     [X]workout live: czas, dodawanie cwiczen na biezaco
+    [X]strona główna
+    [X]workoutDone: udostepnione
 
-    strona główna
     kalendarz: zrobione treningi, planowanie nowych,
-    workoutDone: udostepnione
+    jeden cel
 
 DODATKOWE:
-    kalorie/makro
-    udostpenij trening
-    mapa silowni w okolicy
+    [X]udostpenij trening
+
+    mapa silowni w okolicy - developers.google.com
 
 DATA:
     #00dfc0
 
-LEFT MENU:
-    [X]home
-    [X]homeDelete
-    [X]homePasswordDelete
-    [X]homeProfile
-    [X]goalsShow
-    [X]goalsNew
-    [X]calendar
-    [X]personalBest
-    [X]workoutStats
-    [X]yourWeight
-
-    (?)workoutAdd
-    (?)workoutLive
-    (?)workoutLiveDone
-
 TODO:
+    [X]create workout template
+
     check if logged in
     change post requests(to-do-postRequest.png)
-    [X]create workout template
     check if device is mobile,laptop,computer etc
 
 DEPLOY:
@@ -57,3 +43,6 @@ DEPLOY:
     git add .
     git commit -m 'second'
     git push heroku main
+
+MAP: 
+    https://console.cloud.google.com/google/maps-apis/build/locator-plus?project=exalted-kayak-348801&supportedpurview=project

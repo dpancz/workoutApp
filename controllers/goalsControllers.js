@@ -16,7 +16,6 @@ const goals_show = (req, res) => {
                     Goal.find({ userID: id })
                         .then(goalResult => {
                             goalsData = JSON.stringify(goalResult);
-                            console.log(id, goalsData, weightData, workoutData);
                             res.render('goalsShow', {id, goalsData, weightData, workoutData});
                         })
                         .catch(err3 => {
@@ -46,6 +45,7 @@ const goals_save = (req, res) => {
     let goalType = data.goalType;
     let title = data.title;
     let userID = data.id;
+    userID = JSON.parse(userID).id;
     let goal;
     if (goalType == 'Weight'){
         let weightStart = data.weightStart;
@@ -73,8 +73,67 @@ const goals_save = (req, res) => {
         });
 }
 
+const oneGoal_show = (req, res) => {
+    const goalID = req.params.goalID;
+    let id;
+    let goalData;
+    let weightData;
+    let workoutData;
+    Goal.findOne({ _id: goalID })
+        .then(goalResult => {
+            id = goalResult.userID;
+            goalData = JSON.stringify(goalResult);
+            Workout.find({ userID: id })
+                .then(workoutResult => {
+                    workoutData = JSON.stringify(workoutResult);
+                    Weight.find({ userID: id })
+                        .then(weightResult => {
+                            weightData = JSON.stringify(weightResult);
+                            res.render('oneGoalShow', {id, goalData, weightData, workoutData});
+                        })
+                        .catch(err3 => {
+                            console.log(err3);
+                        })
+                })
+                .catch(err2 => {
+                    console.log(err2);
+                })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+const oneGoal_delete = (req, res) => {
+    const goalID = req.body.goalID;
+    const id = req.body.id;
+    Goal.findByIdAndDelete(goalID)
+        .then(result => {
+            res.end();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+const oneGoal_done = (req, res) => {
+    const goalID = req.body.goalID;
+    Goal.findByIdAndUpdate(goalID, {done: true})
+        .then(result => {
+            res.end();
+        })
+        .catch(err => {
+            console.log(err);
+            res.end();
+        });
+}
+
 module.exports = {
     goals_show,
     goals_add,
-    goals_save
+    goals_save,
+
+    oneGoal_show,
+    oneGoal_delete,
+    oneGoal_done
 }

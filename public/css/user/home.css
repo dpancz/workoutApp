@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 50%;
+    top: 60%;
     align-items: center;
 }
 
@@ -132,4 +132,226 @@
 @keyframes arrowRotate2 {
     0%{transform: rotateZ(180deg);}
     100%{transform: rotateZ(0deg);}
+}
+
+/*DATA*/
+
+.dataDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    position: absolute;
+    height: 330px;
+    top: 8%;
+    gap: 100px;
+    background-color: #007767;
+    border-radius: 24px;
+}
+
+/*GOALS*/
+
+.allGoalsDiv{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    overflow: hidden;
+}
+
+.goalsDiv{
+    display: flex;
+    position: absolute;
+    left: 25px;
+    gap: 50px;
+}
+
+.goalDiv{
+    height: 250px;
+    width: 250px;
+    background-color: #666666;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.goalBackground{
+    height: 250px;
+    width: 250px;
+    background-color: #666666;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.goalInfoDiv{
+    height: 150px;
+    width: 250px;
+    background-color: #444444;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    position: absolute;
+    gap: 10%;
+    top: 0%;
+    z-index: 1;
+}
+
+@keyframes goalInfoDivShow {
+    0%{top: 0%;}
+    100%{top: 100%; z-index: 3;}
+}
+
+@keyframes goalInfoDivHide {
+    0%{top: 100%;}
+    100%{top: 0%; z-index: 0;}
+}
+
+.infoText{
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    left: 20px;
+}
+
+.goalTitle{
+    color: #ffffff;
+    position: absolute;
+    top: 7%;
+    z-index: 2;
+}
+
+.goalCircle{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    z-index: 2;
+}
+
+.goalCircleIn{
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    fill: none;
+    stroke-width: 10;
+    stroke: #00dfc0;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transform: rotateZ(90deg);
+    transform-origin: 70px;
+}
+
+.percentNumber{
+    position: absolute;
+    font-size: 30px;
+}
+
+.scrollDots{
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.dot{
+    height: 10px;
+    width: 10px;
+    background-color: #aaaaaa;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.backgroundCircle{
+    border: 10px solid #000000;
+    z-index: 3;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.2;
+    box-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+/*WEIGHT*/
+
+.weightDiv{
+    height: 200px;
+    width: 250px;
+    position: absolute;
+    left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #666666;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.weightNumber{
+    color: #ffffff;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+.weightText{
+    color: #dddddd;
+    position: absolute;
+    bottom: 10px;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+/*CHART*/
+
+.chartDiv{
+    height: 200px;
+    width: 250px;
+    position: absolute;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #666666;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.chartText{
+    color: #dddddd;
+    position: absolute;
+    bottom: 10px;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+.canvasDiv{
+    position: relative;
+    top: -5%;
+    height: 150px;
+    width: 220px;
 }
