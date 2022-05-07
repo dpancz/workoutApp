@@ -1,0 +1,20 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.calendarDiv{
+    background-color: #eeeeee;
+}
+
+.dateRect{
+    border: 1px solid #aaaaaa;
+    color: #ffffff;
+}
+
+.workoutShowDiv{
+    background-color: #222222;
+}
+
+.monthText{
+    color: #000000;
+}

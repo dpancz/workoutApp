@@ -1,0 +1,43 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.mainTitle{
+    color: #000000;
+}
+
+.changePasswordBtn{
+    background-color: #00dfc0;
+}
+
+.break2{
+    background-color: #666666;
+}
+
+.divIn{
+    color: #000000;
+}
+
+.titleIn{
+    color: #00a892;
+}
+
+.fa-pen{
+    color: #555555;
+}
+
+.fa-pen:hover{
+    color: #aaaaaa;
+}
+
+.fa-check{
+    color: #555555;
+}
+
+.fa-check:hover{
+    color: #aaaaaa;
+}
+
+.saveBtn{
+    background-color: #00dfc0;
+}

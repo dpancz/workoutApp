@@ -96,3 +96,7 @@ function displayPBs(){
         index++;
     });
 }
+
+//cookies
+wholeCookies('partials/statisticsLeftMenu.css');
+wholeCookies('statistics/personalBest.css');

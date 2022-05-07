@@ -31,9 +31,7 @@ router.post('/profile/password', userController.user_profilePasswordSave);
 
 //SETTINGS
 
-router.get('/settings/:id', userController.user_settingsShow);
-
-router.post('/settings', userController.user_settingsSave); 
+router.get('/settings/:id', userController.user_settingsShow); 
 
 //
 

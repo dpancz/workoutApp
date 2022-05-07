@@ -126,3 +126,7 @@ function quantityGoalDisplay(){
     newGoalForm.appendChild(submitBtn);
 
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('goals/goalsNew.css');

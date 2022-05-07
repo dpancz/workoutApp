@@ -8,6 +8,7 @@ const password = document.querySelector('#password');
 const btn = document.querySelector('#loginBtn');
 
 btn.addEventListener('click', () => {
+    sendReq();
     let timer1 = setTimeout(() => {
         username.value = "";
         password.value = "";
@@ -21,6 +22,9 @@ registerBtn.addEventListener('click', () => {
     loginContainer.style.animation = 'registerSize 1s';
     loginImage.style.animation = 'registerImageSize 1s';
     imageContainer.style.animation = 'registerImageDivSize 1s';
+    if( document.querySelector('.alertDiv') != null){
+        document.querySelector('.alertDiv').remove();
+    }
     let timer1 = setTimeout(() => {
         loginBtn.style.opacity = 0;
         registerBtn.style.opacity = 0;
@@ -44,3 +48,44 @@ registerBtn.addEventListener('click', () => {
         clearTimeout(timer1);
     }, 1000);
 });
+
+//fetch
+
+async function sendReq(){
+
+    let usernameInput = username.value;
+    let passwordInput = password.value;
+
+    await fetch('/user/login', {
+            method: 'POST',
+            body: JSON.stringify({ username: usernameInput, password: passwordInput }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+    .then(result => result.json())
+    .then(resData => {
+        if (resData.id != null) {
+            window.location.href = '/user/' + resData.id;
+        } else {
+            somethingWrong();
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
+    
+    function somethingWrong(){
+        const bgDiv = document.querySelector('.bgDiv');
+
+        const alertDiv = document.createElement('div');
+
+        alertDiv.classList.add('alertDiv');
+
+        alertDiv.textContent = 'Wrong username or password. Try again.';
+
+        bgDiv.appendChild(alertDiv);
+    }
+
+}
+
+//cookies
+wholeCookies('loginRegister/login.css');

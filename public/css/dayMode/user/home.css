@@ -1,0 +1,110 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.mainPage .liveWorkoutDiv .title{
+    color: #000000;
+}
+
+.mainPage .liveWorkoutDiv .startBtn{
+    background-color: #00dfc0;
+}
+
+.mainPage .liveWorkoutDiv .startBtn:hover{
+    background-color: #00ffdd;
+}
+
+/*MENU*/
+
+.fa-chevron-down{
+    color: #000000;
+}
+
+.menuList{
+    background-color: #666666;
+}
+
+.inMenuList{
+    border-bottom: 1px solid #444444;
+    border-top: 1px solid #444444;
+}
+
+.deleteOption{
+    background-color: lightcoral;
+}
+
+.inMenuList:hover{
+    background-color: #888888;
+}
+
+.deleteOption:hover{
+    background-color: rgb(255, 133, 133);
+}
+
+/*DATA*/
+
+.dataDiv{
+    background-color: #02ad96;
+}
+
+/*GOALS*/
+
+.goalDiv{
+    background-color: #666666;
+}
+
+.goalBackground{
+    background-color: #666666;
+}
+
+.goalInfoDiv{
+    background-color: #444444;
+}
+
+.infoText{
+    color: #ffffff;
+}
+
+.goalTitle{
+    color: #ffffff;
+}
+
+.goalCircleIn{
+    stroke: #00dfc0;
+}
+
+.dot{
+    background-color: #aaaaaa;
+}
+
+.backgroundCircle{
+    border: 10px solid #000000;
+    box-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+/*WEIGHT*/
+
+.weightDiv{
+    background-color: #666666;
+}
+
+.weightNumber{
+    color: #ffffff;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+.weightText{
+    color: #dddddd;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+/*CHART*/
+
+.chartDiv{
+    background-color: #666666;
+}
+
+.chartText{
+    color: #dddddd;
+    text-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}

@@ -1,0 +1,12 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+#weightCurrentLabel{
+    color: #000000;
+}
+
+#submitBtn{
+    background-color: #00dfc0;
+    color: #ffffff;
+}

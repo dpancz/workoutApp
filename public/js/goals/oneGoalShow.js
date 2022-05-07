@@ -28,33 +28,55 @@ switch(goalData.goalType){
 //MAIN
 
 function caseWeight(){
+    if (goalData.done == 'false'){
     
-    if (weightData.length > 0){
+        if (weightData.length > 0){
 
+            weightData = sortData(weightData, true);
+
+            lastWeight = weightData[0].data.weightNumber;
+
+            weightGoal(goalData.goal);
+
+            displayDataOfWeight();
+
+        }
+
+    } else {
         weightData = sortData(weightData, true);
 
         lastWeight = weightData[0].data.weightNumber;
 
         weightGoal(goalData.goal);
 
-        displayDataOfWeight();
-
-    }
+        displayDataDoneWeight();
+    }   
 
 }
 
 function caseWorkoutQuantity(){
+    if (goalData.done == 'false'){
     
-    if (workoutData.length > 0){
+        if (workoutData.length > 0){
 
+            workoutData = sortData(workoutData, false);
+
+            workoutsInTime = workoutsInTime;
+
+            quantityGoal(goalData.goal);
+
+            displayDataOfWorkoutQuantity();
+
+        }
+
+    } else {
         workoutData = sortData(workoutData, false);
 
         workoutsInTime = workoutsInTime;
 
         quantityGoal(goalData.goal);
 
-        displayDataOfWorkoutQuantity();
-
+        displayDataDoneWorkoutQuantity();
     }
 
 }
@@ -124,7 +146,9 @@ function circleAnimation(circle, percentNumber, percent){
         let counter = 0;
         let timer1 = setInterval(() => {
             if (percent >= counter){
-                circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                if(counter <= 100){
+                    circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                }
                 percentNumber.textContent = counter + '%';
                 counter++;
             } else if (percent == counter) {
@@ -140,7 +164,7 @@ function thisTime(days){
         let counter = 0;
 
         workoutData.forEach(workout => {
-            if (workout.date > timeAgo && workout.date < dateNow){
+            if (workout.date >= timeAgo && workout.date <= dateNow){
                 counter++;
             }
         })
@@ -169,6 +193,7 @@ function displayDataOfWeight(){
         currentWeightDiv.classList.add('goalDiv');
         currentWeightDiv.classList.add('thirdDataDiv');
         currentWeightOutput.classList.add('goalOutput');
+        currentWeightOutput.classList.add('goalOutputThird');
 
         currentWeightTitle.textContent = 'Current weight:';
         currentWeightOutput.textContent = lastWeight + 'kg';
@@ -189,6 +214,7 @@ function displayDataOfWeight(){
         initialWeightDiv.classList.add('goalDiv');
         initialWeightDiv.classList.add('firstDataDiv');
         initialWeightOutput.classList.add('goalOutput');
+        initialWeightOutput.classList.add('goalOutputFirst');
 
         initialWeightTitle.textContent = 'Initial weight:';
         initialWeightOutput.textContent = goalData.goal.weightStart + ' kg';
@@ -209,6 +235,7 @@ function displayDataOfWeight(){
     goalWeightDiv.classList.add('goalDiv');
     goalWeightDiv.classList.add('secondDataDiv')
     goalWeightOutput.classList.add('goalOutput');
+    goalWeightOutput.classList.add('goalOutputSecond');
 
     goalWeightTitle.textContent = 'Goal weight:';
     goalWeightOutput.textContent = goalData.goal.weightGoal + ' kg';
@@ -238,6 +265,7 @@ function displayDataOfWorkoutQuantity(){
         currentQuantityDiv.classList.add('goalDiv');
         currentQuantityDiv.classList.add('firstDataDiv');
         currentQuantityOutput.classList.add('goalOutput');
+        currentQuantityOutput.classList.add('goalOutputFirst');
 
         currentQuantityTitle.textContent = 'Current workouts:';
         currentQuantityOutput.textContent = workoutsInTime;
@@ -258,6 +286,7 @@ function displayDataOfWorkoutQuantity(){
         daysDiv.classList.add('goalDiv');
         daysDiv.classList.add('thirdDataDiv');
         daysOutput.classList.add('goalOutput');
+        daysOutput.classList.add('goalOutputThird');
 
         daysTitle.textContent = 'Days for goal:';
         daysOutput.textContent = goalData.goal.days;
@@ -278,6 +307,7 @@ function displayDataOfWorkoutQuantity(){
         goalQuantityDiv.classList.add('goalDiv');
         goalQuantityDiv.classList.add('secondDataDiv');
         goalQuantityOutput.classList.add('goalOutput');
+        goalQuantityOutput.classList.add('goalOutputSecond');
 
         goalQuantityTitle.textContent = 'Goal workouts:';
         goalQuantityOutput.textContent = goalData.goal.workouts;
@@ -298,6 +328,7 @@ function displayDataOfWorkoutQuantity(){
         daysRemainingDiv.classList.add('goalDiv');
         daysRemainingDiv.classList.add('forthDataDiv');
         daysRemainingOutput.classList.add('goalOutput');
+        daysRemainingOutput.classList.add('goalOutputForth');
 
         daysRemainingTitle.textContent = 'Days remaining:';
         daysRemainingOutput.textContent = daysRemainingCount();
@@ -324,6 +355,180 @@ function displayDataOfWorkoutQuantity(){
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));   
 
         return (goalData.goal.days - diffDays)
+    }
+
+}
+
+function displayDataDoneWeight(){
+
+    displayFinishDate();
+    displayInitialWeight();
+    displayGoalWeight();
+    displayFinishWeight();
+
+    function displayFinishDate(){
+
+        const goalWeightDiv = document.createElement('div');
+        const goalWeightTitle = document.createElement('div');
+        const goalWeightOutput = document.createElement('div');
+
+        goalWeightDiv.classList.add('goalDiv');
+        goalWeightDiv.classList.add('firstDataDiv')
+        goalWeightOutput.classList.add('goalOutput');
+
+        goalWeightTitle.textContent = 'Date of finish:';
+        goalWeightOutput.textContent = goalData.doneData.finishDate;
+
+        goalWeightDiv.appendChild(goalWeightTitle);
+        goalWeightDiv.appendChild(goalWeightOutput);
+
+        mainPage.appendChild(goalWeightDiv);
+
+    }
+
+    function displayInitialWeight(){
+        const initialWeightDiv = document.createElement('div');
+        const initialWeightTitle = document.createElement('div');
+        const initialWeightOutput = document.createElement('div');
+
+        initialWeightDiv.classList.add('goalDiv');
+        initialWeightDiv.classList.add('secondDataDiv');
+        initialWeightOutput.classList.add('goalOutput');
+
+        initialWeightTitle.textContent = 'Initial weight:';
+        initialWeightOutput.textContent = goalData.goal.weightStart + ' kg';
+
+        initialWeightDiv.appendChild(initialWeightTitle);
+        initialWeightDiv.appendChild(initialWeightOutput);
+
+        mainPage.appendChild(initialWeightDiv);
+    }
+
+    function displayGoalWeight(){
+
+        const goalWeightDiv = document.createElement('div');
+        const goalWeightTitle = document.createElement('div');
+        const goalWeightOutput = document.createElement('div');
+
+        goalWeightDiv.classList.add('goalDiv');
+        goalWeightDiv.classList.add('thirdDataDiv')
+        goalWeightOutput.classList.add('goalOutput');
+
+        goalWeightTitle.textContent = 'Goal weight:';
+        goalWeightOutput.textContent = goalData.goal.weightGoal + ' kg';
+
+        goalWeightDiv.appendChild(goalWeightTitle);
+        goalWeightDiv.appendChild(goalWeightOutput);
+
+        mainPage.appendChild(goalWeightDiv);
+
+    }
+
+    function displayFinishWeight(){
+
+        const goalWeightDiv = document.createElement('div');
+        const goalWeightTitle = document.createElement('div');
+        const goalWeightOutput = document.createElement('div');
+
+        goalWeightDiv.classList.add('goalDiv');
+        goalWeightDiv.classList.add('forthDataDiv')
+        goalWeightOutput.classList.add('goalOutput');
+
+        goalWeightTitle.textContent = 'Finish weight:';
+        goalWeightOutput.textContent = goalData.doneData.additional + ' kg';
+
+        goalWeightDiv.appendChild(goalWeightTitle);
+        goalWeightDiv.appendChild(goalWeightOutput);
+
+        mainPage.appendChild(goalWeightDiv);
+
+    }
+}
+
+function displayDataDoneWorkoutQuantity(){
+
+    displayFinishDate();
+    displayDoneGoalWorkouts();
+    displayDaysRemaining();
+
+    function displayFinishDate(){
+
+        const goalWeightDiv = document.createElement('div');
+        const goalWeightTitle = document.createElement('div');
+        const goalWeightOutput = document.createElement('div');
+
+        goalWeightDiv.classList.add('goalDiv');
+        goalWeightDiv.classList.add('firstDataDiv')
+        goalWeightOutput.classList.add('goalOutput');
+
+        goalWeightTitle.textContent = 'Date of finish:';
+        goalWeightOutput.textContent = goalData.doneData.finishDate;
+
+        goalWeightDiv.appendChild(goalWeightTitle);
+        goalWeightDiv.appendChild(goalWeightOutput);
+
+        mainPage.appendChild(goalWeightDiv);
+
+    }
+
+    function displayDoneGoalWorkouts(){
+
+        const goalWeightDiv = document.createElement('div');
+        const goalWeightTitle = document.createElement('div');
+        const goalWeightOutput = document.createElement('div');
+
+        goalWeightDiv.classList.add('goalDiv');
+        goalWeightDiv.classList.add('secondDataDiv')
+        goalWeightOutput.classList.add('goalOutput');
+
+        goalWeightTitle.textContent = 'Done (goal) workouts:';
+        goalWeightOutput.textContent = `${goalData.doneData.additional} (${goalData.goal.workouts})`;
+
+        goalWeightDiv.appendChild(goalWeightTitle);
+        goalWeightDiv.appendChild(goalWeightOutput);
+
+        mainPage.appendChild(goalWeightDiv);
+
+    }
+
+    function displayDaysRemaining(){
+
+        const daysRemainingDiv = document.createElement('div');
+        const daysRemainingTitle = document.createElement('div');
+        const daysRemainingOutput = document.createElement('div');
+
+        daysRemainingDiv.classList.add('goalDiv');
+        daysRemainingDiv.classList.add('thirdDataDiv');
+        daysRemainingOutput.classList.add('goalOutput');
+
+        daysRemainingTitle.textContent = 'Days when finished (goal)';
+        daysRemainingOutput.textContent = daysRemainingCount();
+
+        daysRemainingDiv.appendChild(daysRemainingTitle);
+        daysRemainingDiv.appendChild(daysRemainingOutput);
+
+        mainPage.appendChild(daysRemainingDiv);
+
+    }
+
+    function daysRemainingCount(){
+        let startDate = goalData.createdAt;
+        let finishDate = new Date();
+        finishDate.setFullYear(Number(goalData.doneData.finishDate.substring(0,4)));
+        finishDate.setMonth(Number(goalData.doneData.finishDate.substring(5,7) - 1));
+        finishDate.setDate(Number(goalData.doneData.finishDate.substring(8,10)));
+        let year = Number(goalData.createdAt.substring(0,4));
+        let month = Number(goalData.createdAt.substring(5,7) - 1);
+        let day = Number(goalData.createdAt.substring(8,10));
+        startDate = new Date();
+        startDate.setFullYear(year);
+        startDate.setMonth(month);
+        startDate.setDate(day);
+        
+        const diffTime = Math.abs(finishDate - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));   
+
+        return `${diffDays} (${goalData.goal.days})`;
     }
 
 }
@@ -397,7 +602,7 @@ markDoneDiv.addEventListener('click', () => {
         markDoneDiv.style.right = '0px';
         markDoneDiv.style.bottom = '0px';
         markDoneDiv.style.animation = '';
-        //sendDone();
+        sendDone();
         confetti();
         clearTimeout(timer2);
     }, 3000);
@@ -426,10 +631,19 @@ function setDone(){
 }
 
 async function sendDone(){
+    let additional;
+    switch(goalData.goalType){
+        case 'Weight':
+            additional = lastWeight;
+            break;
+        case 'Workout quantity':
+            additional = workoutsInTime;
+            break;
+    }
     try{
         const res = await fetch('/goals/done', {
             method: 'POST',
-            body: JSON.stringify({ goalID: goalData._id }),
+            body: JSON.stringify({ goalID: goalData._id, additional }),
             headers: { 'Content-Type': 'application/json' }
         });
     } catch (err) {
@@ -459,3 +673,7 @@ function confetti(){
         clearTimeout(timerConfetti);
     }, 5000);
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('goals/oneGoalShow.css');

@@ -1,0 +1,59 @@
+*::-webkit-scrollbar {
+    width: 16px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #eeeeee;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border-radius: 10px;
+    border: 3px solid #111111;
+}
+
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.title{
+    color: #000000;
+}
+
+.goalDiv{
+    background-color: #666666;
+}
+
+.goalBackground{
+    background-color: #666666;
+}
+
+.goalInfoDiv{
+    background-color: #444444;
+}
+
+.infoText{
+    color: #ffffff;
+}
+
+.goalTitle{
+    color: #ffffff;
+}
+
+.goalCircleIn{
+    stroke: #00dfc0;
+}
+
+.addNewBtn{
+    background-color: #00dfc0;
+    color: #ffffff;
+}
+
+.addNewBtn:hover{
+    background-color: #00ffdd;
+}
+
+.backgroundCircle{
+    border: 10px solid #000000;
+    box-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}

@@ -1,0 +1,93 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.workoutTimeDiv{
+    background-color: #ffffff;
+}
+
+#workoutHours{
+    background-color: #888888;
+}
+
+#workoutMinutes{
+    background-color: #888888;
+}
+
+.workoutListDiv{
+    background-color: #333333;
+}
+
+.title{
+    color: #ffffff;
+}
+
+.addFirst{
+    background-color: #00dfc0;
+}
+
+.addingNew{
+    background-color: #666666;
+}
+
+.setsBtn{
+    background-color: #222222;
+    color: #00dfc0;
+}
+  
+  *::-webkit-scrollbar-track {
+    background: #666666;
+}
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+.newRepDiv{
+    background-color: #00dfc0;
+}
+
+.addingDoneBtn{
+    background-color: #00dfc0;
+}
+
+.exerciseInList{
+    background-color: #00dfc0;
+}
+
+.newSetDisplay{
+    color: #ffffff;
+}
+  
+  .workoutList::-webkit-scrollbar-track {
+    background: #333333;
+}
+  
+  .workoutList::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+#addWorkoutBtn{
+    background-color: lightcoral;
+}
+
+/*TEMPLATES*/
+  
+.templatesDiv::-webkit-scrollbar-track {
+    background: #eeeeee;
+}
+  
+.templatesDiv::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+.setDiv{
+    color: #555555;
+}
+
+.closeBtn{
+    color: #000000;
+}

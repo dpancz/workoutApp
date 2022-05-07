@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout</title>
     <link rel="stylesheet" href="/public/css/workout/workoutTemplate.css">
+    <link rel="stylesheet" href="/public/css/partialsCSS/closeX.css">
+    <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
     <div class="bgDiv">
+
+        <%- include('./partials/closeX.ejs') %>
 
         <form class="newWorkoutForm">
             <input type="text" id="workoutName" name="workoutName" placeholder="Template name" required value="My Template">
@@ -50,8 +54,8 @@
     <script>
         let id = '<%- id %>';
     </script>
+    <script src="/public/js/partialsJS/newCSS.js"></script>
     <script src="/public/js/workout/workoutTemplate.js"></script>
     <script src="/public/js/partialsJS/checkDeviceType.js"></script>
-
 </body>
 </html>

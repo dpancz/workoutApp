@@ -101,3 +101,9 @@
     font-size: 25px;
     gap: 10px;
 }
+
+.alertDiv{
+    color: lightcoral;
+    position: absolute;
+    top: 50%;
+}

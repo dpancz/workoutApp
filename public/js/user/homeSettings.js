@@ -4,12 +4,10 @@ const buttonColor = document.querySelector(".buttonColor");
 const dot = document.querySelector(".dot");
 const slide = document.querySelector(".slide");
 
-const dayMode = document.querySelector('#dayMode');
-
-let clickedButtonColor = dayModeData;
+let clickedButtonColor = checkCookiesDayMode();
 setDayMode();
 
-if (dayModeData == true){
+if (clickedButtonColor == 'true'){
     dot.classList.toggle("active");
     slide.classList.toggle("active");
     setDayMode();
@@ -18,13 +16,11 @@ if (dayModeData == true){
 buttonColor.addEventListener("click", () => {
     dot.classList.toggle("active");
     slide.classList.toggle("active");
-    if(!clickedButtonColor){
-        clickedButtonColor = true;
-        displayOfSave();
+    if(clickedButtonColor == 'false'){
+        clickedButtonColor = 'true';
         setDayMode();
     } else {
-        clickedButtonColor = false;
-        displayOfSave();
+        clickedButtonColor = 'false';
         setDayMode();
     }
 });
@@ -39,13 +35,18 @@ buttonColor.addEventListener("mouseout", () => {
 
 function setDayMode(){
     switch(clickedButtonColor){
-        case true:
-            dayMode.value = 'true';
+        case 'true':
+            document.cookie = "dayMode=false; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            document.cookie = "dayMode=true; expires: Sun, 14 Oct 2040 12:00:00 UTC; path=/";
             break;
-        case false:
-            dayMode.value = 'false';
+        case 'false':
+            document.cookie = "dayMode=true; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            document.cookie = "dayMode=false; expires: Sun, 14 Oct 2040 12:00:00 UTC; path=/";
             break;
     }
+    document.cookie = "dayMode=true; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    wholeCookies('partials/leftMenu.css');
+    wholeCookies('user/homeSettings.css');
 }
 
 //BUTTON 3
@@ -53,8 +54,6 @@ function setDayMode(){
 const option1 = document.querySelector(".option.option1");
 const option2 = document.querySelector(".option.option2");
 const slider = document.querySelector(".slider");
-
-const language = document.querySelector('#language');
 
 let interval1;
 let pixels = 140;
@@ -78,7 +77,6 @@ option2.addEventListener("click", () => {
 function option1slide(){
     currentOption = 1;
     setLanguage();
-    displayOfSave();
     if ( pixels > 20 ){
         pixels-=3;
         slider.style.left = `${pixels}px`;
@@ -92,7 +90,6 @@ function option1slide(){
 function option2slide(){
     currentOption = 2;
     setLanguage();
-    displayOfSave();
     if ( pixels < 140 ){
         pixels+=3;
         slider.style.left = `${pixels}px`;
@@ -107,33 +104,9 @@ function option2slide(){
 function setLanguage(){
     switch(currentOption){
         case 1:
-            language.value = 'English';
+            
             break;
         case 2:
-            language.value = 'Polish';
-    }
-}
-
-//SAVE BUTTON
-
-const saveBtn = document.querySelector('.saveBtn');
-const userID = document.querySelector('#userID');
-
-userID.value = id;
-displayOfSave();
-
-function saveBtnShow(){
-    saveBtn.style.display = 'block';
-}
-
-function saveBtnHide(){
-    saveBtn.style.display = 'none';
-}
-
-function displayOfSave(){
-    if (currentOption != languageData || clickedButtonColor != dayModeData){
-        saveBtnShow();
-    } else {
-        saveBtnHide();
+            
     }
 }

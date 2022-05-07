@@ -1,0 +1,15 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.infoDiv{
+    background-color: rgba(88, 88, 88, 0.5);
+}
+
+.infoTitle{
+    color: #000000;
+}
+
+.infoData{
+    color: #00dfc0;
+}

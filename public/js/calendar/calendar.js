@@ -8,65 +8,10 @@ const arrowRight = document.querySelector('.arrowRight');
 
 let dateRectColor = [];
 data = JSON.parse(data);
+weightData = JSON.parse(weightData);
 
-/*
-let data = [{
-    workoutName: 'Live-Workout',
-    workoutColor: 'lightcoral',
-    workoutDate: '2022-04-15',
-    time: {
-        hours: 1,
-        minutes: 0,
-        seconds: 0,
-    },
-    workout: [
-        {
-            exerciseName: 'Bench press',
-            sets: [
-                {
-                    reps: 3,
-                    weight: 4,
-                }
-            ]
-        },
-        {
-            exerciseName: 'Push ups',
-            sets: [
-                {
-                    reps: 20,
-                    weight: 4,
-                },
-                {
-                    reps: 20,
-                    weight: 4,
-                }
-            ]
-        },
-    ]
-    },
-    {
-        workoutName: 'Workout',
-        workoutColor: 'white',
-        workoutDate: '2022-04-04',
-        time: {
-            hours: 0,
-            minutes: 4,
-            seconds: 20,
-        },
-        workout: [
-            {
-                exerciseName: 'Bench press',
-                sets: [
-                    {
-                        reps: 3,
-                        weight: 4,
-                    }
-                ]
-            }
-        ]
-    }
-];
-*/
+let allChosen = [];
+let chosenDates = [];
 
 clearColors();
 createDateRect();
@@ -179,6 +124,7 @@ function getFirstDateWeekday(date){
     }
 
     displayWorkouts(data);
+    displayWeight();
 }
 
 function createDateRect(){
@@ -234,9 +180,20 @@ function dateRectClicked(index, chosen){
     if(chosen){
         dateRectColor[index].mouseoutBackup = dateRectColor[index].mouseout;
         dateRectColor[index].mouseout = dateRectColor[index].mouseover;
+        allChosen.push(index);
+        newChosen(index);
     } else {
         dateRectColor[index].mouseout = dateRectColor[index].mouseoutBackup;
+        let chosenSplice = -1;
+        allChosen.forEach(chosenOne => {
+            chosenSplice++;
+            if (chosenOne == index){
+                allChosen.splice(chosenSplice, 1);
+                deleteChosen(chosenSplice);
+            }
+        });
     }
+    displayAddWorkout(index);
 }
 
 arrowRight.addEventListener('click', () => {
@@ -264,8 +221,6 @@ function displayWorkouts(workoutsList){
             date.getMonth() == oneWorkoutDate.month - 1
         ){
             showWorkout(oneWorkoutDate.day, oneWorkout);
-        } else {
-            console.log("not here")
         }
     });
 
@@ -438,3 +393,154 @@ function displayWorkouts(workoutsList){
     }
 
 }
+
+function displayWeight(){
+
+    weightData.forEach(oneWeight => {
+        let oneWeightDate = getDateOf(oneWeight);
+        if(
+            date.getFullYear() == oneWeightDate.year &&
+            date.getMonth() == oneWeightDate.month - 1
+        ){
+            showWeight(oneWeightDate.day, oneWeight);
+        }
+    })
+
+    function getDateOf(thisWeight){
+        let thisDate = thisWeight.date;
+        let thisYear = Number(thisDate.slice(0, 4));
+        let thisMonth = Number(thisDate.slice(5, 7));
+        let thisDay = Number(thisDate.slice(8, 10));
+        return { year: thisYear, month: thisMonth, day: thisDay };
+    }
+
+    function showWeight(day, thisWeight){
+        for(let i = 0; i < 42; i++){
+            let textInside = document.querySelector(`.dateRectText${i}`).textContent;
+            if(textInside.length > 2){
+                textInside = textInside.substring(0, 2);
+                let matches = textInside.match(/(\d+)/);
+
+                if(matches){
+                    textInside = Number(matches[0]);
+                }
+
+            }
+            if(textInside == day){
+                const weightDiv = document.createElement('div');
+
+                weightDiv.classList.add('weightDiv');
+
+                weightDiv.textContent = thisWeight.weightNumber + ' kg';
+
+                document.querySelector(`.dateRect${i}`).appendChild(weightDiv);
+            }
+        }
+    }
+
+}
+
+//add workout
+
+function displayAddWorkout(index){
+    if (allChosen.length > 0 && document.querySelector('.addWorkoutBtn') == null){
+
+        const bgDiv = document.querySelector('.bgDiv');
+        const addWorkoutButton = document.createElement('div');
+
+        addWorkoutButton.classList.add('addWorkoutBtn');
+
+        addWorkoutButton.textContent = 'Create workout';
+
+        bgDiv.appendChild(addWorkoutButton);
+
+        addWorkoutButton.addEventListener('click', () => {
+           window.location.href = '/workout-add/' + id + '/' + chosenDates.toString();
+        });
+
+    } else if (document.querySelector('.addWorkoutBtn') != null && allChosen.length <= 0){
+
+        document.querySelector('.addWorkoutBtn').remove();
+
+    }
+}
+
+function getDate(index){
+    let year = date.getFullYear().toString();
+    let month = (date.getMonth() + 1).toString();
+    let day = document.querySelector(`.dateRect${index}`).textContent.toString();
+    if (month.length == 1){
+        month = '0' + month;
+    }
+    if (day.length == 1){
+        day = '0' + day;
+    }
+    return (`${year}-${month}-${day}`);
+}
+
+//display chosen
+
+function newChosen(index){
+    let numberReady;
+    allChosen.forEach(chosen => {
+        let textInside = document.querySelector(`.dateRect${chosen}`).textContent;
+        if(textInside.length > 2){
+            numberReady = textInside.substring(0, 2);
+            let matches = numberReady.match(/(\d+)/);
+
+            if(matches){
+                numberReady = Number(matches[0]);
+            }
+
+        } else {
+            numberReady = Number(textInside);
+        }
+
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        numberReady = numberReady.toString();
+        month = month.toString();
+        if(numberReady.length < 2){
+            numberReady = '0' + numberReady;
+        }
+        if(month.length < 2){
+            month = '0' + month;
+        }
+        numberReady = `${year}-${month}-${numberReady}`;
+        chosenDates.push(numberReady);
+    });
+    let uniqueDates = [...new Set(chosenDates)];
+    chosenDates = Array.from(uniqueDates);
+    displayChosenDates();
+}
+
+function deleteChosen(index){
+    chosenDates.splice(index, 1);
+    let uniqueDates = [...new Set(chosenDates)];
+    chosenDates = Array.from(uniqueDates);
+    displayChosenDates();
+}
+
+function displayChosenDates(){
+    if(document.querySelector('.displayDates') != null){
+        document.querySelector('.displayDates').remove();
+    }
+
+    const displayDates = document.createElement('div');
+
+    displayDates.classList.add('displayDates');
+
+    chosenDates.forEach(date => {
+        const dateChosenDiv = document.createElement('div');
+        dateChosenDiv.textContent = date;
+        displayDates.appendChild(dateChosenDiv);
+    });
+
+    const bgDiv = document.querySelector('.bgDiv');
+    bgDiv.appendChild(displayDates);
+
+}
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('calendar/calendar.css');

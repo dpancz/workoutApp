@@ -195,3 +195,7 @@ function editingHeight(){
 function ifEdited(){
     saveBtn.style.display = 'block';
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('user/homeProfile.css');

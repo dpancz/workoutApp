@@ -57,8 +57,14 @@ function displayGoals(){
         goalDiv.appendChild(goalBackground);
         goalDiv.appendChild(goalTitle);
         createCircle(i, goalDiv);
+        createBackgroundCircle(i, goalDiv);
 
         document.querySelector(`.goalRow${Math.floor(i/3)}`).appendChild(goalDiv);
+
+        if(info.done == 'true'){
+            goalBackground.style.backgroundColor = 'lightgreen';
+            goalTitle.style.color = '#000000';
+        }
 
         goalDiv.addEventListener('click', () => {
             window.location.href = '/goals/one/' + goalsData[i]._id;
@@ -140,7 +146,9 @@ function displayGoals(){
             let counter = 0;
             let timer1 = setInterval(() => {
                 if (percent >= counter){
-                    circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                    if(counter <= 100){
+                        circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                    }
                     textPercent.textContent = counter + '%';
                     counter++;
                 } else if (percent == counter) {
@@ -163,6 +171,15 @@ function displayGoals(){
     
             return counter;
         }
+    }
+
+    function createBackgroundCircle(index, div){
+        const percentInside = document.createElement('div');
+
+        percentInside.classList.add('backgroundCircle');
+        percentInside.classList.add(`backgroundCircle${index}`);
+
+        div.appendChild(percentInside);
     }
 
 }
@@ -207,3 +224,7 @@ function orderData(){
     }
     
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('goals/goalsShow.css');

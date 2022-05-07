@@ -1,0 +1,15 @@
+.leftSide{
+    background-color: #aaaaaa;
+}
+
+.leftSide .options .menuOption{
+    color: #000000;
+}
+
+.leftSide .options .menuOption:hover{
+    background-color: #999999;
+}
+
+.leftSide .options .break{
+    background-color: #000000;
+}

@@ -118,7 +118,22 @@ const oneGoal_delete = (req, res) => {
 
 const oneGoal_done = (req, res) => {
     const goalID = req.body.goalID;
-    Goal.findByIdAndUpdate(goalID, {done: true})
+    const additional = req.body.additional;
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = Number(date.getMonth()) + 1;
+    let day = date.getDate();
+    if (month.toString().length < 2){
+        month = '0' + month;
+    }
+    if (day.toString().length < 2){
+        day = '0' + day;
+    }
+    date = `${year}-${month}-${day}`;
+    Goal.findByIdAndUpdate(goalID, {done: true, doneData: {
+        additional,
+        finishDate: date
+    }})
         .then(result => {
             res.end();
         })

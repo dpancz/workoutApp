@@ -57,3 +57,7 @@ function alertDisplay(){
         });
     }
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('user/homePasswordDelete.css');

@@ -1,0 +1,21 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.imageContainer{
+    background-color: #ffffff;
+
+}
+
+.loginUserDiv{
+    background-color: #999999;
+}
+
+#loginBtn{
+    background-color: #00DFC0;
+    color: #ffffff;
+}
+
+#registerBtn{
+    color: #00DFC0;
+}

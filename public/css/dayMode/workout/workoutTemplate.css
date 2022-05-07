@@ -1,0 +1,70 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+#workoutName{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.workoutListDiv{
+    background-color: #333333;
+}
+
+.title{
+    color: #ffffff;
+}
+
+.addFirst{
+    background-color: #00dfc0;
+}
+
+.addingNew{
+    background-color: #666666;
+}
+
+.setsBtn{
+    background-color: #222222;
+}
+  
+  *::-webkit-scrollbar-track {
+    background: #666666;
+}
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+.newRepDiv{
+    background-color: #00dfc0;
+}
+
+.addingDoneBtn{
+    background-color: #00dfc0;
+}
+
+.exerciseInList{
+    background-color: #00dfc0;
+}
+
+.newSetDisplay{
+    color: #ffffff;
+}
+  
+  .workoutList::-webkit-scrollbar-track {
+    background: #333333;
+}
+  
+  .workoutList::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+#addWorkoutBtn{
+    background-color: lightcoral;
+}
+
+.closeBtn{
+    color: #000000;
+}

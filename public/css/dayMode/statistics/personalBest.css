@@ -1,0 +1,33 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #eeeeee;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #00dfc0;
+    border: 3px solid #111111;
+}
+
+.titleOfPage{
+    color: #000000;
+}
+
+.PBDiv{
+    background-color: rgba(88, 88, 88, 0.5);
+}
+
+.PBTitle{
+    color: #000000;
+}
+
+.PBWeight{
+    color: #000000;
+    border: #00dfc0 2px solid;
+}
+
+.PBDate{
+    color: #000000;
+}

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout</title>
-    <link rel="stylesheet" href="../public/css/workout/workoutAdd.css">
+    <link rel="stylesheet" href="/public/css/workout/workoutAdd.css">
     <link rel="stylesheet" href="/public/css/partialsCSS/closeX.css">
     <script src="https://kit.fontawesome.com/121f6f2b6c.js" crossorigin="anonymous"></script>
 </head>
@@ -66,8 +66,29 @@
     <script>
         let id = '<%- id %>';
         let data = '<%- data %>';
+        let passedDate = '<%- date %>';
+        if (passedDate == 1){
+            passedDate = null;
+        } else {
+            let passedDateHelper = passedDate;
+            passedDate = [];
+            let smallerThanTen = false;
+            while(!smallerThanTen){
+                passedDate.push(passedDateHelper.substring(0, 10));
+                passedDateHelper = passedDateHelper.replace(passedDateHelper.substring(0, 11), '');
+                if(passedDateHelper.length < 10){
+                    smallerThanTen = true;
+                }
+            }
+            
+            if (passedDate.length == 1){
+                passedDate = passedDate[0];
+            }
+            
+        }
     </script>
-    <script src="../public/js/workout/workoutAdd.js"></script>
+    <script src="/public/js/partialsJS/newCSS.js"></script>
+    <script src="/public/js/workout/workoutAdd.js"></script>
     <script src="/public/js/partialsJS/closeX.js"></script>
     <script src="/public/js/partialsJS/checkDeviceType.js"></script>
 

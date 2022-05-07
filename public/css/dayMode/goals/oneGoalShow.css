@@ -1,0 +1,64 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.goalTitle{
+    color: #000000;
+}
+
+.goalDiv{
+    color: #000000;
+}
+
+.goalOutput{
+    color: #00dfc0;
+}
+
+.goalCircleIn{
+    stroke: #00dfc0;
+}
+
+.percentNumber{
+    color: #000000;
+}
+
+.backgroundCircle{
+    border: 10px solid #333333;
+    box-shadow: 0 20px 50px rgb(0, 0, 0, 0.8);
+}
+
+.fa-trash{
+    color: #555555;
+}
+
+.fa-trash:hover{
+    color: #999999;
+}
+
+.deleteDiv{
+    background-color: #555555;
+}
+
+.decisionBtn{
+    background-color: blue;
+}
+
+.yesButton{
+    background-color: #90ee90;
+}
+
+.yesButton:hover{
+    background-color: rgb(153, 255, 153);
+}
+
+.noButton{
+    background-color: lightcoral;
+}
+
+.noButton:hover{
+    background-color: rgb(255, 137, 137);
+}
+
+.markDoneDiv{
+    background-color: lightgreen;
+}

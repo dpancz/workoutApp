@@ -15,11 +15,10 @@
                 <img class="loginImage" src="/public/images/loginImg.jpg">
             </div>
             <div class="loginUserDiv">
-                <form class="registerForm" action="/user/register" method="post">
+                <div class="registerForm">
                     <input type="text" name="username" id="username" placeholder="Username" required>
                     <input type="text" name="password" id="password" placeholder="Password" required>
                     <input type="text" name="password2" id="password2" placeholder="Confirm password" required>
-                    <input type="text" name="dayMode" style="display: none;" value='false'>
                     <label for="language" id="languageText">Language:</label>
                     <select name="language" id="language">
                         <option value="English">English</option>
@@ -27,11 +26,12 @@
                     </select>
                     <input type="number" name="height" id="height" placeholder="Your Height" required>
                     <button id="loginBtn">Register</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="/public/js/partialsJS/newCSS.js"></script>
     <script src="/public/js/loginRegister/register.js"></script>
     <script src="/public/js/partialsJS/checkDeviceType.js"></script>
 

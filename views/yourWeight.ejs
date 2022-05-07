@@ -37,11 +37,10 @@
                 <div class="closeBtn">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-                    <form class="newWeightForm" action="/statistics/yourWeight" method="post">
+                    <div class="newWeightForm">
                         <input type="number" name="weightNumber" id="weightInput" placeholder="Weight" min="1" required>
-                        <input type="text" name="userID" id="userID" required style="display: none;">
                         <button id="addWeightBtn">Add</button>
-                    </form>
+                    </div>
             </div>
 
         </div>
@@ -53,6 +52,7 @@
         let height = '<%- height %>';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/public/js/partialsJS/newCSS.js"></script>
     <script src="/public/js/statistics/yourWeight.js"></script>
     <script src="/public/js/partialsJS/statisticsLeftMenu.js"></script>
     <script src="/public/js/partialsJS/checkDeviceType.js"></script>

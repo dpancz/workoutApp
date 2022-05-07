@@ -174,3 +174,7 @@ if (data.length > 0){
         window.location.href = '/template/add/' + id;
     });
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('workout/templateShow.css');

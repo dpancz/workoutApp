@@ -162,3 +162,10 @@ function allInputSend(){
     workoutInputSend.value = JSON.stringify(workoutToSave);
 }
 
+document.querySelector('.closeBtn').addEventListener('click', () => {
+    window.location.href = '/template/' + id;
+});
+
+//cookies
+wholeCookies('workout/workoutTemplate.css');
+

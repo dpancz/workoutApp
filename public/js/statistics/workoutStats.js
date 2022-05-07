@@ -11,22 +11,6 @@ const thirdData = document.querySelector('.thirdData');
 
 const chartPick = document.querySelector('#chartPick');
 
-const yourWeightBtn = document.querySelector('.yourWeightBtn');
-const personalBestBtn = document.querySelector('.personalBestBtn');
-const logo = document.querySelector('.logo');
-
-yourWeightBtn.addEventListener('click', () => {
-    window.location.href = '/statistics/yourWeight/' + id;
-});
-
-logo.addEventListener('click', () => {
-    window.location.href = '/user/' + id;
-});
-
-personalBestBtn.addEventListener('click', () => {
-    window.location.href = '/statistics/personalBest/' + id;
-});
-
 data = JSON.parse(data);
 
 /*
@@ -143,6 +127,15 @@ let exercisesWeight = [];
 
 let chosen = 'All workouts';
 let thisChart;
+let colorMode = '#ffffff';
+
+//cookies
+wholeCookies('partials/statisticsLeftMenu.css');
+wholeCookies('statistics/workoutStats.css');
+
+if(checkCookiesDayMode() == 'true'){
+    colorMode = '#000000';
+}
 
 getNames();
 getToChart(chosen);
@@ -282,7 +275,7 @@ function displayChart(first){
                     backgroundColor: '#00dfc0',
                     borderColor: '#00dfc0',
                     hoverBorderWidth: 3,
-                    hoverBorderColor: '#ffffff',
+                    hoverBorderColor: colorMode,
                 }],
             },
             options:{
@@ -291,7 +284,7 @@ function displayChart(first){
                 scales: {
                     x: {
                     ticks: {
-                        color: "#ffffff"
+                        color: colorMode
                     },
                     grid: {
                         color: "transparent"
@@ -299,7 +292,7 @@ function displayChart(first){
                     },
                     y: {
                     ticks: {
-                        color: "#ffffff"
+                        color: colorMode
                     },
                     grid: {
                         color: "transparent"
@@ -325,7 +318,7 @@ function displayChart(first){
                     backgroundColor: '#00dfc0',
                     borderColor: '#00dfc0',
                     hoverBorderWidth: 3,
-                    hoverBorderColor: '#ffffff',
+                    hoverBorderColor: colorMode,
                 }],
             },
             options:{
@@ -334,7 +327,7 @@ function displayChart(first){
                 scales: {
                     x: {
                     ticks: {
-                        color: "#ffffff"
+                        color: colorMode
                     },
                     grid: {
                         color: "transparent"
@@ -342,7 +335,7 @@ function displayChart(first){
                     },
                     y: {
                     ticks: {
-                        color: "#ffffff"
+                        color: colorMode
                     },
                     grid: {
                         color: "transparent"
@@ -528,6 +521,9 @@ function displayInfo(exerciseName){
             hoursSum += 1;
         }
 
+        hoursSum = Math.round(hoursSum);
+        minutesSum = Math.round(minutesSum);
+        secondsSum = Math.round(secondsSum);
         hoursSum = hoursSum.toString();
         minutesSum = minutesSum.toString();
         secondsSum = secondsSum.toString();

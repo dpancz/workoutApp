@@ -85,15 +85,58 @@ function setStart(){
 }
 
 function setDate(){
-    let month = (date.getMonth() + 1).toString();
-    let day = date.getDate().toString();
-    if (month.length == 1){
-        month = '0' + month;
+    if(passedDate == null){
+        let month = (date.getMonth() + 1).toString();
+        let day = date.getDate().toString();
+        if (month.length == 1){
+            month = '0' + month;
+        }
+        if (day.length == 1){
+            day = '0' + day;
+        }
+        return `${date.getFullYear()}-${month}-${day}`;
+    } else if (typeof(passedDate) == 'object'){
+        document.querySelector('#workoutDate').remove();
+        const rangeDiv = document.createElement('div');
+        rangeDiv.id = 'workoutDate';
+        rangeDiv.style.color = '#ffffff';
+        rangeDiv.style.top = '57.5%';
+        getDateRange();
+        rangeDiv.textContent = getRangeDisplay();
+        document.querySelector('.newWorkoutForm').appendChild(rangeDiv);
+        return `${passedDate.toString()}`
+    } else {
+        return `${passedDate}`;
     }
-    if (day.length == 1){
-        day = '0' + day;
-    }
-    return `${date.getFullYear()}-${month}-${day}`;
+}
+
+function getDateRange(){
+    let passedDates = [];
+    passedDate.forEach(passed => {
+        let myPassedDate = new Date(passed);
+        passedDates.push(myPassedDate);
+    });
+    passedDates.sort((a,b)=>a.getTime()-b.getTime());
+    passedDate = passedDates;
+
+    let index = 0;
+    passedDates.forEach(passed => {
+        let year = passed.getFullYear();
+        let month = Number(passed.getMonth()) + 1;
+        let day = passed.getDate();
+        if (month.toString().length < 2){
+            month = '0' + month;
+        }
+        if (day.toString().length < 2){
+            day = '0' + day;
+        }
+        passedDates[index] = `${year}-${month}-${day}`;
+        index++;
+    })
+}
+
+function getRangeDisplay(){
+    return `from ${passedDate[0]} \n to ${passedDate[passedDate.length - 1]}`;
 }
 
 function addRep(){
@@ -360,4 +403,7 @@ function displayTemplates(){
         allInputSend();
     }
 }
+
+//cookies
+wholeCookies('workout/workoutAdd.css');
 

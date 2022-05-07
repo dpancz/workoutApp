@@ -1,0 +1,27 @@
+.bgDiv{
+    background-color: #eeeeee;
+}
+
+.addWeightBtn{
+    background-color: #00dfc0;
+}
+
+.addWeightDiv{
+    background-color: #666666;
+}
+
+#addWeightBtn{
+    background-color: #00dfc0;
+}
+
+.lastMonthImprovement{
+    color: #000000;
+}
+
+.BMIcount{
+    color: #000000;
+}
+
+.alertDiv{
+    color: lightcoral;
+}

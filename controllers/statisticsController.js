@@ -52,7 +52,7 @@ const yourWeight_save = (req, res) => {
     let newWeight = new Weight({userID: req.body.userID, weightNumber: req.body.weightNumber, date: `${year}-${month}-${day}`});
     newWeight.save()
         .then(result => {
-            res.redirect('/statistics/yourWeight/' + req.body.userID);
+            res.end(JSON.stringify({weight: result}));
         })
         .catch(err => {
             console.log(err);

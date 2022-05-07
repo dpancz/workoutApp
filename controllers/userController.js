@@ -2,6 +2,7 @@ const User = require('../models/user');
 const Weight = require('../models/weight');
 const Goal = require('../models/goal');
 const Workout = require('../models/workout');
+const Template = require('../models/template');
 
 const user_login = (req, res) => {
     let username = req.body.username;
@@ -9,27 +10,38 @@ const user_login = (req, res) => {
 
     User.findOne({ username: username, password: password}, function (err, user) {
         if ( user != null ){
-            res.redirect('/user/' + user._id);
+            res.end(JSON.stringify({ id: user._id }));
         } else {
-            res.redirect('/');
+            res.end(JSON.stringify({ id: null }));
         }
     });
 };
 
 const user_create = (req, res) => {
     const input = req.body;
-    if (input.password == input.password2){
+    if (
+        input.password == input.password2 &&
+        input.height != '' &&
+        input.username != ''
+        ){
         delete input.password2;
         const user = new User(input);
         user.save()
             .then((result) => {
-                res.redirect('/user/' + result._id);
+                res.end(JSON.stringify({ id: result._id }));
             })
             .catch((err) => {
                 console.log(err);
+                res.end(JSON.stringify({id: Number(err.code)}))
             });
+    } else if (input.password != input.password2){
+        res.end(JSON.stringify({ id: 1 }));
+    } else if (input.height == ''){
+        res.end(JSON.stringify({ id: 2 }));
+    } else if (input.username == ''){
+        res.end(JSON.stringify({ id: 3 }));
     } else {
-        res.redirect('/register');
+        res.end(JSON.stringify({ id: 4 }));
     }
 };
 
@@ -88,7 +100,14 @@ const user_delete = (req, res) => {
                                 Workout.find({ userID: thisID })
                                     .remove()
                                     .then(resultWorkout => {
-                                        res.redirect('/');
+                                        Template.find({ userID: thisID })
+                                            .remove()
+                                            .then(resultTemplate => {
+                                                res.redirect('/');
+                                            })
+                                            .catch(err5 => {
+                                                console.log(err5);
+                                            })
                                     })
                                     .catch(err4 => {
                                         console.log(err4);
@@ -175,27 +194,12 @@ const user_profilePasswordSave = (req, res) => {
 
 const user_settingsShow = (req, res) => {
     const id = req.params.id;
-    let dayModeData;
     let languageData;
 
     User.find({ _id: id })
         .then(result => {
-            dayModeData = result[0].dayMode;
             languageData = result[0].language;
-            res.render('homeSettings', {id, dayModeData, languageData});
-        })
-        .catch(err => {
-            console.log(err);
-        });
-}
-
-const user_settingsSave = (req, res) => {
-    const id = req.body.userID;
-    let language = req.body.language;
-    let dayMode = req.body.dayMode;
-    User.findOneAndUpdate({ _id: id }, { language, dayMode })
-        .then(result => {
-            res.redirect('/user/settings/' + id);
+            res.render('homeSettings', {id, languageData});
         })
         .catch(err => {
             console.log(err);
@@ -217,5 +221,4 @@ module.exports = {
     user_profilePasswordSave,
 
     user_settingsShow,
-    user_settingsSave,
 }

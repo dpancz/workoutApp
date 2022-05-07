@@ -8,11 +8,18 @@ const closeBtn = document.querySelector('.fa-xmark');
 const monthImprovement = document.querySelector('.monthImprovement');
 const BMINumber = document.querySelector('.BMINumber');
 
-const userID = document.querySelector('#userID');
-
-userID.value = id;
 let myData = JSON.parse(data);
 //height = height
+let weightChart;
+let colorMode = '#ffffff';
+
+//cookies
+wholeCookies('partials/statisticsLeftMenu.css');
+wholeCookies('statistics/yourWeight.css');
+
+if (checkCookiesDayMode() == 'true'){
+    colorMode = '#000000';
+}
 
 let dates = [];
 let weights = [];
@@ -47,7 +54,7 @@ function getDatesWeights(){
 }
 
 function displayChart(){
-    let weightChart = new Chart(ctx, {
+    weightChart = new Chart(ctx, {
         type:'bar',
         data: {
             labels: dates,
@@ -57,7 +64,7 @@ function displayChart(){
                 backgroundColor: '#00dfc0',
                 borderColor: '#00dfc0',
                 hoverBorderWidth: 3,
-                hoverBorderColor: '#ffffff',
+                hoverBorderColor: colorMode,
             }],
         },
         options:{
@@ -66,7 +73,7 @@ function displayChart(){
             scales: {
                 x: {
                   ticks: {
-                    color: "#ffffff"
+                    color: colorMode
                   },
                   grid: {
                     color: "transparent"
@@ -74,7 +81,7 @@ function displayChart(){
                 },
                 y: {
                   ticks: {
-                    color: "#ffffff"
+                    color: colorMode
                   },
                   grid: {
                     color: "transparent"
@@ -96,7 +103,7 @@ function getImprovement(){
     let actualDates = [];
     getActualDates();
     let closestWeight = weightCloseToMonth();
-    let difference = closestWeight.weightNumebr - actualDates[0].weightNumebr;
+    let difference = actualDates[0].weightNumebr - closestWeight.weightNumebr;
     let differenceDisplay;
     if (difference >= 0){
         differenceDisplay = "+" + difference.toString();
@@ -154,7 +161,7 @@ function getBMI(){
 
 
     function getCurrentWeight(){
-        return myData[myData.length - 1].weightNumber;
+        return weights[weights.length - 1];
     }
 
     function BMICount(){
@@ -176,4 +183,80 @@ function getBMI(){
             return '(obesity)';
         }
     }
+}
+
+// send
+
+const addWeightBtn2 = document.querySelector('#addWeightBtn');
+
+addWeightBtn2.addEventListener('click', () => {
+    sendAll();
+});
+
+async function sendAll(){
+
+    if (document.querySelector('#weightInput').value != ''){
+
+        let userIDSend = id;
+        let weightSend = document.querySelector('#weightInput').value;
+
+        await fetch('/statistics/yourWeight', {
+            method: 'POST',
+            body: JSON.stringify({ userID: userIDSend, weightNumber: weightSend }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(result => result.json())
+        .then(resData => {
+            let newDate = resData.weight.date;
+            let newWeight = resData.weight.weightNumber;
+            dates.push(newDate);
+            weights.push(newWeight);
+            weightChart.destroy();
+            displayChart();
+            getBMI();
+            differenceSecond();
+            addingHide();
+        })
+        .catch(err => {
+            console.log(err);
+            somethingWrong('Something went wrong...');
+        })
+
+    } else {
+
+        somethingWrong('Weight is required');
+
+    }
+
+}
+
+function differenceSecond(){
+
+    let lastImprovement = Number(monthImprovement.textContent);
+    let currentDate = Number(weights[weights.length - 1]);
+    let dateBefore = Number(weights[weights.length - 2]);
+
+    let newDifference = currentDate - (dateBefore - lastImprovement);
+
+    let newDifferenceDisplay = null;
+
+    if (newDifference >= 0){
+        newDifferenceDisplay = "+" + newDifference.toString();
+        monthImprovement.style.color = 'lightgreen';
+    } else {
+        newDifferenceDisplay = newDifference.toString();
+        monthImprovement.style.color = 'lightcoral';
+    }
+    monthImprovement.textContent = newDifferenceDisplay;
+
+}
+
+function somethingWrong(text){
+    const alertDiv = document.createElement('div');
+
+    alertDiv.classList.add('alertDiv');
+
+    alertDiv.textContent = text
+
+    addWeightDiv.appendChild(alertDiv);
 }

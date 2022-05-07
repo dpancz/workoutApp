@@ -11,3 +11,7 @@ function displayExclamation(){
         passwordWrong.style.display = 'none';
     }
 }
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('user/homeDelete.css');

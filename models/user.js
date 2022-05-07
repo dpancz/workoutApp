@@ -15,10 +15,6 @@ const userSchema = new Schema({
         type: Number,
         required: true
     },
-    dayMode: {
-        type: String,
-        required: true
-    },
     language: {
         type: String,
         required: true

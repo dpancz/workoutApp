@@ -127,8 +127,15 @@ goalsDiv.style.left = `${initialLeft}px`;
 let firstSlide = true;
 
 orderData();
+let empty = false;
+if (goalsData.length <= 0){
+    goalsData.push({userID: id, title: 'Add your first goal!'});
+    empty = true;
+}
 displayGoals();
-slideGoals();
+if (goalsData.length > 1){
+    slideGoals();
+}
 
 function displayGoals(){
 
@@ -161,8 +168,17 @@ function displayGoals(){
         goalsDiv.appendChild(goalDiv);
         createDot(i);
 
+        if(info.done == 'true'){
+            goalBackground.style.backgroundColor = 'lightgreen';
+            goalTitle.style.color = '#000000';
+        }
+
         goalDiv.addEventListener('click', () => {
-            window.location.href = '/goals/one/' + goalsData[i]._id;
+            if(!empty){
+                window.location.href = '/goals/one/' + goalsData[i]._id;
+            } else {
+                window.location.href = '/goals/' + id;
+            }
         });
     }
 
@@ -241,7 +257,9 @@ function displayGoals(){
             let counter = 0;
             let timer1 = setInterval(() => {
                 if (percent >= counter){
-                    circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                    if(counter <= 100){
+                        circle.style.strokeDashoffset = (440 - (440*counter)/100);
+                    }
                     textPercent.textContent = counter + '%';
                     counter++;
                 } else if (percent == counter) {
@@ -579,3 +597,7 @@ chartDiv.addEventListener('click', () => {
 });
 
 //CHART
+
+//cookies
+wholeCookies('partials/leftMenu.css');
+wholeCookies('user/home.css');

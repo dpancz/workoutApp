@@ -17,9 +17,8 @@ VIEWS:
     [X]workout live: czas, dodawanie cwiczen na biezaco
     [X]strona główna
     [X]workoutDone: udostepnione
-
-    kalendarz: zrobione treningi, planowanie nowych,
-    jeden cel
+    [X]jeden cel
+    [X]kalendarz: zrobione treningi, planowanie nowych,
 
 DODATKOWE:
     [X]udostpenij trening
@@ -30,11 +29,10 @@ DATA:
     #00dfc0
 
 TODO:
-    [X]create workout template
-
     check if logged in
     change post requests(to-do-postRequest.png)
     check if device is mobile,laptop,computer etc
+    delete templates when delete account
 
 DEPLOY:
     git push origin
@@ -46,3 +44,25 @@ DEPLOY:
 
 MAP: 
     https://console.cloud.google.com/google/maps-apis/build/locator-plus?project=exalted-kayak-348801&supportedpurview=project
+
+DAYMODE:
+    [X]calendar
+    [X]goalsNew
+    [X]goalsShow
+    [X]home
+    [X]homeDelete
+    [X]homePasswordDelete
+    [X]homeProfile
+    [X]homeSettings
+    [X]login
+    [X]oneGoalShow
+    [X]personalBest
+    [X]register
+    [X]templateShow
+    [X]workoutAdd
+    [X]workoutStats
+    [X]workoutTemplate
+    [X]yourWeight
+
+    (?)workoutLive
+    (?)workoutLiveDone

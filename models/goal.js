@@ -22,6 +22,11 @@ const goalSchema = new Schema({
         type: String,
         default: false,
         required: true,
+    },
+    doneData: {
+        type: Object,
+        default: {},
+        required: true
     }
 }, { timestamps: true });
 
